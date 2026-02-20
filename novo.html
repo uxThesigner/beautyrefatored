@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="config/config.js"></script>
+    <script src="config/theme.js"></script>
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Novo Atendimento</title>
+    <link rel="stylesheet" href="assets/css/app-mobile.css">
+
+    <style>
+        body, html { height: 100%; overflow: hidden; background: var(--color-background); }
+        .wizard-container {
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            height: 100vh; text-align: center; padding: 20px;
+        }
+        .step { display: none; animation: fadeIn 0.5s ease-in-out; }
+        .step.active { display: block; }
+
+        .loader {
+            border: 4px solid #f3f3f3; border-top: 4px solid var(--color-accent);
+            border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        .option-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px; width: 100%; max-width: 600px; margin-top: 30px;
+        }
+        .option-card {
+            background: white; padding: 30px; border-radius: var(--radius-card);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); cursor: pointer; transition: 0.3s;
+            border: 2px solid transparent;
+        }
+        .option-card:hover { border-color: var(--color-accent); transform: translateY(-5px); }
+        .option-card i { font-size: 2.5rem; color: var(--color-primary); margin-bottom: 15px; }
+        .option-card h4 { color: var(--color-primary); }
+
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="client-app">
+
+    <div class="wizard-container">
+        <div class="step active" id="step1">
+            <div class="loader"></div>
+            <h1 style="color: var(--color-primary);">Olá, <span id="user-name">Beatriz</span>!</h1>
+            <p>Estamos preparando tudo para você...</p>
+        </div>
+
+        <div class="step" id="step2">
+            <h2 style="color: var(--color-primary);">O que vamos fazer hoje?</h2>
+            <p>Escolha uma das opções abaixo para continuar:</p>
+
+            <div class="option-grid">
+                <div class="option-card" data-go-to="busca.html?q=serv">
+                    <i class="fas fa-spa"></i>
+                    <h4>Serviços</h4>
+                </div>
+                <div class="option-card" data-go-to="busca.html?q=prod">
+                    <i class="fas fa-shopping-bag"></i>
+                    <h4>Produtos</h4>
+                </div>
+                <div class="option-card" data-go-to="avaliacao.html">
+                    <i class="fas fa-clipboard-check"></i>
+                    <h4>Avaliação Gratuita</h4>
+                </div>
+            </div>
+            
+            <button id="btn-back" style="margin-top: 40px; background: none; border: none; color: #999; cursor: pointer;">
+                <i class="fas fa-arrow-left"></i> Voltar
+            </button>
+        </div>
+    </div>
+    <script src="assets/js/auth.js" defer></script>
+    <script src="assets/js/functions.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/pages/novo.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="config/config.js"></script>
+    <script src="config/theme.js"></script>
+    <meta name="theme-color" content="#454F4A">
+    
+    <title>Criar Conta | Beauty Esthetica</title>
+
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+
+    <style>
+        .login-container {
+            min-height: calc(100vh - var(--header-height) - 200px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            background-color: var(--color-background);
+        }
+
+        .login-card {
+            background: #fff;
+            width: 100%;
+            max-width: 420px;
+            padding: 40px;
+            border-radius: var(--radius-card);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .login-card h1 {
+            color: var(--color-primary);
+            font-family: var(--font-sans);
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .login-card p {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            text-align: left;
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+            color: var(--color-primary);
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-input);
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            transition: border-color 0.3s;
+            box-sizing: border-box;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--color-accent);
+        }
+
+        .btn-login {
+            width: 100%;
+            padding: 14px;
+            background-color: var(--color-primary);
+            color: var(--color-text-light);
+            border: none;
+            border-radius: var(--radius-btn);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.3s;
+            margin-top: 10px;
+        }
+
+        .btn-login:hover {
+            opacity: 0.9;
+        }
+
+        .login-footer-links {
+            margin-top: 25px;
+            font-size: 0.85rem;
+        }
+
+        .login-footer-links a {
+            color: var(--color-accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .login-footer-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body class="page-with-fixed-header">
+
+    <div id="header-placeholder"></div>
+
+    <main class="login-container">
+        <div class="login-card">
+            <h1>Criar Conta</h1>
+            <p>Crie seu acesso para entrar na área do cliente da <span data-wl-text="config.business.name">Beauty Esthetica</span></p>
+            
+            <form id="signup-form">
+                <div class="form-group">
+                    <label for="signup-name">Nome</label>
+                    <input type="text" id="signup-name" class="form-control" placeholder="Seu nome" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="signup-username">Acesso (e-mail, CPF ou usuário)</label>
+                    <input type="text" id="signup-username" class="form-control" placeholder="Digite seu acesso" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="signup-password">Senha</label>
+                    <input type="password" id="signup-password" class="form-control" placeholder="••••••••" required>
+                </div>
+
+                <button type="submit" class="btn-login">CRIAR CONTA</button>
+            </form>
+
+            <div class="login-footer-links">
+                <span>Já tem conta? <a href="login.html">Fazer login</a></span>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="assets/js/auth.js" defer></script>
+    <script src="assets/js/functions.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/pages/criar-conta.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="config/config.js"></script>
+    <script src="config/theme.js"></script>
+    <meta name="theme-color" content="#454F4A">
+
+    <title>Links</title>
+    
+    <link rel="canonical" href="">
+<meta name="description" content="">
+
+    <meta property="og:title" content="">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="">
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        /* CSS Exclusivo para a página de Links (Estilo "Linktree") */
+        body {
+            background-color: #fdfcf8;
+            background-image: radial-gradient(var(--color-accent) 0.5px, transparent 0.5px);
+            background-size: 20px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .profile-container {
+            margin-bottom: 30px;
+            animation: fadeInDown 0.8s ease;
+        }
+
+        .profile-img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--color-accent);
+            padding: 3px;
+            background-color: #fff;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .profile-name {
+            font-family: var(--font-sans);
+            font-size: 1.4em;
+            font-weight: 600;
+            color: var(--color-primary);
+            margin: 0;
+        }
+
+        .profile-role {
+            font-family: var(--font-script);
+            font-size: 1.5em;
+            color: var(--color-accent);
+            margin-top: -5px;
+            display: block;
+        }
+
+        .links-wrapper {
+            width: 100%;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .link-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-family: var(--font-sans);
+            font-weight: 500;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            position: relative;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            border: 1px solid var(--color-accent);
+            background-color: #fff;
+            color: var(--color-primary);
+        }
+
+        .link-btn i {
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        /* Botão Destaque (Whatsapp) */
+        .link-btn.featured {
+            background-color: var(--color-accent);
+            color: #fff;
+            border: 1px solid var(--color-accent);
+            font-weight: 600;
+            transform: scale(1.02);
+            box-shadow: 0 4px 12px rgba(170, 148, 120, 0.4);
+        }
+
+        /* Botão  */
+        .link-btn.club-btn {
+            border: 2px solid var(--color-accent);
+            color: var(--color-accent);
+            font-weight: 600;
+        }
+
+        .link-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .link-btn.featured:hover {
+            background-color: #8e7b64;
+        }
+
+        .footer-links {
+            margin-top: 50px;
+            font-size: 0.8em;
+            color: #999;
+            line-height: 1.6;
+        }
+
+        .footer-links a {
+            color: var(--color-accent);
+            text-decoration: none;
+        }
+
+        /* Animações */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="profile-container">
+        <img src="imagens/owner.jpg" data-wl-src="theme.assets.ownerPhoto" alt="" data-wl-alt="config.business.ownerName" loading="lazy" class="profile-img">
+        <h1 class="profile-name"><span data-wl-text="config.business.name"></span></h1>
+        <span class="profile-role">por <span data-wl-text="config.business.ownerName"></span></span>
+    </div>
+
+    <div class="links-wrapper">
+
+        <a href="#" data-wl-href="config.contacts.whatsapp.url" target="_blank" class="link-btn featured">
+            <i class="fab fa-whatsapp"></i> Agendar Horário
+        </a>
+
+        <a href="clube.html" class="link-btn club-btn">
+            <i class="fas fa-crown"></i> Assinar <span data-wl-text="config.business.clubLabel"></span>
+        </a>
+
+        <a href="avaliacao.html" class="link-btn">
+            <i class="fas fa-clipboard-list"></i> Avaliação Gratuita
+        </a>
+
+        <a href="promocoes.html" class="link-btn">
+            <i class="fas fa-tags"></i> <span data-wl-text="config.business.promotionsLabel"></span> (Ofertas)
+        </a>
+
+        <a href="presente.html" class="link-btn">
+            <i class="fas fa-gift"></i> Comprar Vale Presente
+        </a>
+
+        <a href="index.html" class="link-btn">
+            <i class="fas fa-globe"></i> Visitar Site Oficial
+        </a>
+
+        <a href="#" data-wl-href="config.business.addressMapsUrl" target="_blank" class="link-btn">
+            <i class="fas fa-map-marker-alt"></i> Ver Localização
+        </a>
+
+    </div>
+
+    <footer class="footer-links">
+        <p data-wl-text="config.business.address"></p>
+        <p><a href="#" data-wl-href="config.site.url">Visite nosso site</a></p>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+
+</body>
+</html>

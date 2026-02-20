@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="config/config.js"></script>
+    <script src="config/theme.js"></script>
+    <meta name="theme-color" content="#454F4A">
+    <title>Página não encontrada</title>
+    
+    
+    <meta name="robots" content="noindex, follow">
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        .error-section {
+            padding: 180px 20px 100px;
+            text-align: center;
+            background-color: #fdfcf8;
+            background-image: radial-gradient(var(--color-accent) 0.5px, transparent 0.5px);
+            background-size: 30px 30px;
+            min-height: 70vh; /* Garante que o rodapé fique lá embaixo */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .error-code {
+            font-size: 8em;
+            font-weight: 700;
+            color: var(--color-accent);
+            opacity: 0.3;
+            line-height: 1;
+            margin-bottom: -20px;
+            font-family: var(--font-sans);
+        }
+
+        .error-title {
+            font-size: 2.5em;
+            color: var(--color-primary);
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .error-message {
+            max-width: 500px;
+            margin: 0 auto 40px;
+            color: #666;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        .error-actions {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Ícone de "Perdido" */
+        .error-icon {
+            font-size: 4em;
+            color: var(--color-primary);
+            margin-bottom: 20px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        @media (max-width: 600px) {
+            .error-code { font-size: 5em; }
+            .error-title { font-size: 1.8em; }
+        }
+    </style>
+</head>
+<body class="page-with-fixed-header">
+
+    <div id="header-placeholder"></div>
+
+    <main class="error-section">
+        
+        <div class="error-code">404</div>
+        <i class="fas fa-compass error-icon"></i>
+        
+        <h1 class="error-title">Ops! Página não encontrada</h1>
+        
+        <p class="error-message">
+            Parece que o conteúdo que você procurou não está mais aqui ou o link está incorreto. 
+            Mas não se preocupe, sua beleza continua intacta! ✨
+        </p>
+
+        <div class="error-actions">
+            <a href="index.html" class="btn btn-primary">
+                VOLTAR AO INÍCIO
+            </a>
+
+            <a href="#" data-wl-href="config.contacts.whatsapp.url" target="_blank" class="btn btn-outline" style="border: 2px solid var(--color-accent); color: var(--color-accent); background: transparent;">
+                FALAR COM SUPORTE
+            </a>
+        </div>
+
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <script src="assets/js/auth.js" defer></script>
+
+    <script src="assets/js/functions.js" defer></script> 
+    <script src="assets/js/main.js" defer></script> 
+</body>
+</html>

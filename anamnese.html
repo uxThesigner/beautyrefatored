@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="config/config.js"></script>
+    <script src="config/theme.js"></script>
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Gestão de Anamneses | Admin</title>
+
+    <link rel="stylesheet" href="assets/css/app-mobile.css">
+
+    <style>
+        :root { --sidebar-width: 260px; }
+        body { background-color: #f4f7f6; display: flex; min-height: 100vh; margin: 0; }
+
+        .admin-sidebar { width: var(--sidebar-width); background-color: var(--color-primary); color: white; padding: 30px 20px; position: fixed; height: 100vh; z-index: 100; }
+        .admin-nav { list-style: none; margin-top: 40px; padding: 0; }
+        .admin-nav a { color: rgba(255,255,255,0.8); text-decoration: none; display: flex; align-items: center; gap: 12px; padding: 12px 15px; border-radius: var(--radius-btn); margin-bottom: 5px; }
+        .admin-nav a.active { background: var(--color-accent); color: white; }
+
+        .admin-main { margin-left: var(--sidebar-width); width: calc(100% - var(--sidebar-width)); padding: 40px; }
+
+        /* Filtros Superiores */
+        .filter-section {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr auto;
+            gap: 15px;
+            background: white;
+            padding: 20px;
+            border-radius: var(--radius-card);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            align-items: end;
+        }
+
+        .filter-group { display: flex; flex-direction: column; gap: 5px; }
+        .filter-group label { font-size: 0.75rem; font-weight: 700; color: var(--color-primary); text-transform: uppercase; }
+        .filter-group input, .filter-group select { 
+            padding: 10px; border: 1px solid var(--color-border); border-radius: var(--radius-input); 
+        }
+
+        /* Cartões de Anamnese */
+        .anamnese-grid { display: grid; grid-template-columns: 1fr; gap: 15px; }
+
+        .anamnese-card {
+            background: white;
+            padding: 20px;
+            border-radius: var(--radius-card);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            align-items: center;
+            gap: 20px;
+            border-left: 5px solid #ddd;
+            transition: 0.3s;
+        }
+        .anamnese-card:hover { transform: translateX(5px); border-left-color: var(--color-accent); }
+
+        .client-info h3 { margin: 0; font-size: 1.1rem; color: var(--color-primary); }
+        .client-meta { font-size: 0.8rem; color: #777; margin-top: 4px; }
+
+        /* Tags de Alerta */
+        .tag-container { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+        .tag { 
+            font-size: 0.65rem; padding: 3px 10px; border-radius: 50px; 
+            font-weight: 700; text-transform: uppercase; 
+        }
+        .tag-allergy { background: #fee2e2; color: #b91c1c; } /* Alérgica */
+        .tag-gestant { background: #fef3c7; color: #92400e; } /* Gestante */
+        .tag-medication { background: #e0f2fe; color: #075985; } /* Medicação */
+        .tag-new { background: #f0fdf4; color: #166534; } /* Primeira vez */
+
+        .type-badge {
+            font-size: 0.7rem; padding: 2px 8px; border-radius: 4px;
+            background: #eee; color: #666; font-weight: 600;
+        }
+
+        .actions { display: flex; gap: 10px; }
+        .btn-view { background: #f8f9fa; color: var(--color-primary); border: 1px solid #ddd; padding: 10px 15px; border-radius: 5px; cursor: pointer; font-size: 0.85rem; }
+        .btn-view:hover { background: var(--color-primary); color: white; }
+
+        .empty-state { text-align: center; padding: 50px; color: #aaa; }
+    </style>
+</head>
+<body class="admin-app">
+
+    <div id="admin-sidebar-placeholder"></div>
+
+    <main class="admin-main">
+        <header style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+            <div>
+                <h1 style="color: var(--color-primary);">Prontuários & Anamneses</h1>
+                <p>Histórico de saúde e evolução de todas as clientes.</p>
+            </div>
+            <a href="avaliacao.html" class="btn" style="background: var(--color-accent); color: white; padding: 15px 25px; border-radius: 5px; text-decoration: none; font-weight: 600;">
+                <i class="fas fa-plus-circle"></i> NOVA ANAMNESE
+            </a>
+        </header>
+
+        <section class="filter-section">
+            <div class="filter-group">
+                <label>Pesquisar</label>
+                <input type="text" id="searchName" placeholder="Nome, CPF ou Telefone...">
+            </div>
+            <div class="filter-group">
+                <label>Tipo de Cliente</label>
+                <select id="filterType">
+                    <option value="all">Todos</option>
+                    <option value="fixo">Cliente Fixo</option>
+                    <option value="visitante">Visitante/Presencial</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Status Alerta</label>
+                <select id="filterTag">
+                    <option value="all">Sem filtro</option>
+                    <option value="allergy">Alérgicas</option>
+                    <option value="gestant">Gestantes</option>
+                </select>
+            </div>
+            <button class="btn-view" style="height: 42px;"><i class="fas fa-filter"></i></button>
+        </section>
+
+        <div class="anamnese-grid" id="listContainer">
+            
+            <div class="anamnese-card" data-type="fixo">
+                <div class="client-initials" style="width: 50px; height: 50px; background: var(--color-marquee); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; color: var(--color-primary);">BC</div>
+                <div class="client-info">
+                    <span class="type-badge">CLIENTE FIXO</span>
+                    <h3>Beatriz Cavalcante</h3>
+                    <p class="client-meta">Última atualização: Hoje às 14:00 • Realizado por: Dra. Hillary</p>
+                    <div class="tag-container">
+                        <span class="tag tag-allergy"><i class="fas fa-exclamation-triangle"></i> Alérgica a Ácidos</span>
+                        <span class="tag tag-medication">Usa Roacutan</span>
+                    </div>
+                </div>
+                <div class="actions">
+                    <button class="btn-view" title="Imprimir PDF"><i class="fas fa-print"></i></button>
+                    <button class="btn-view" data-go-to="avaliacao.html">VER FICHA</button>
+                </div>
+            </div>
+
+            <div class="anamnese-card" data-type="visitante">
+                <div class="client-initials" style="width: 50px; height: 50px; background: #eee; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #999;">ML</div>
+                <div class="client-info">
+                    <span class="type-badge">VISITANTE PRESENCIAL</span>
+                    <h3>Mariana Lima</h3>
+                    <p class="client-meta">Última atualização: 18/02/2026 • Realizado por: Tays Alves</p>
+                    <div class="tag-container">
+                        <span class="tag tag-new">Primeira Avaliação</span>
+                        <span class="tag tag-gestant">Gestante (4 meses)</span>
+                    </div>
+                </div>
+                <div class="actions">
+                    <button class="btn-view" title="Imprimir PDF"><i class="fas fa-print"></i></button>
+                    <button class="btn-view">VER FICHA</button>
+                </div>
+            </div>
+
+            <div class="anamnese-card" data-type="fixo">
+                <div class="client-initials" style="width: 50px; height: 50px; background: var(--color-marquee); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; color: var(--color-primary);">JR</div>
+                <div class="client-info">
+                    <span class="type-badge">CLIENTE FIXO</span>
+                    <h3>Juliana Ramos</h3>
+                    <p class="client-meta">Última atualização: 10/01/2026 • Realizado por: Dra. Hillary</p>
+                    <div class="tag-container">
+                        <span style="color: #2ecc71; font-size: 0.7rem; font-weight: 600;"><i class="fas fa-check-circle"></i> Sem contraindicações</span>
+                    </div>
+                </div>
+                <div class="actions">
+                    <button class="btn-view" title="Imprimir PDF"><i class="fas fa-print"></i></button>
+                    <button class="btn-view">VER FICHA</button>
+                </div>
+            </div>
+
+        </div>
+
+        <footer style="margin-top: 40px; text-align: center; color: #bbb; font-size: 0.8rem;">
+            Exibindo 3 de 158 prontuários registrados.
+        </footer>
+    </main>
+    <script src="assets/js/auth.js" defer></script>
+    <script src="assets/js/functions.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/pages/anamnese.js" defer></script>
+    <script src="assets/js/admin-shell.js"></script>
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="config/config.js"></script>
+    <script src="config/theme.js"></script>
+    <meta name="theme-color" content="#454F4A">
+    <title>Vale Presente</title>
+    
+    
+    
+    <link rel="canonical" href="">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="">
+    <meta property="og:url" content="">
+    <meta property="og:title" content="">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="">
+    <meta name="twitter:title" content="">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="">
+<meta name="description" content=""><link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        .gift-hero {
+            padding: 160px 20px 80px;
+            background-color: #fdfcf8;
+            text-align: center;
+            background-image: url('imagens/Banners/gift-bg-texture.png'); /* Opcional, ou use o gradiente padrão */
+        }
+
+        .gift-hero h1 {
+            font-family: var(--font-sans);
+            font-size: 2.8em;
+            color: var(--color-primary);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .gift-hero span {
+            font-family: var(--font-script);
+            font-size: 2.5em;
+            color: var(--color-accent);
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        .gift-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Estilo do Cartão Visual */
+        .gift-card-item {
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+            border: 1px solid #eee;
+            position: relative;
+        }
+
+        .gift-card-item:hover {
+            transform: translateY(-10px);
+            border-color: var(--color-accent);
+        }
+
+        .card-visual {
+            background: linear-gradient(135deg, var(--color-primary) 0%, #2c3330 100%);
+            height: 180px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-accent);
+            position: relative;
+        }
+
+        .card-visual::after {
+            content: '';
+            position: absolute;
+            top: 10px; left: 10px; right: 10px; bottom: 10px;
+            border: 1px dashed rgba(170, 148, 120, 0.3);
+            border-radius: 10px;
+        }
+
+        .card-visual i { font-size: 3em; margin-bottom: 10px; }
+        .card-visual h3 { font-family: var(--font-script); font-size: 2em; margin: 0; color: #fff; }
+        .card-visual .value { font-family: var(--font-sans); font-weight: 600; font-size: 1.5em; color: var(--color-accent); margin-top: 5px; }
+
+        .card-body { padding: 25px; text-align: center; }
+        .card-body p { color: #666; font-size: 0.9em; margin-bottom: 20px; }
+
+        .btn-gift {
+            background-color: var(--color-accent);
+            color: #fff;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: background 0.3s;
+        }
+        .btn-gift:hover { background-color: #8e7b64; }
+
+        /* Passo a passo */
+        .how-it-works {
+            background-color: #f9f9f9;
+            padding: 60px 20px;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .steps-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        .step { max-width: 250px; }
+        .step-icon {
+            width: 50px; height: 50px; background: var(--color-accent); color: #fff;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 15px; font-size: 1.2em;
+        }
+    </style>
+</head>
+<body class="page-with-fixed-header">
+
+    <div id="header-placeholder"></div>
+
+    <main>
+        <section class="gift-hero">
+            <div class="container">
+                <span>Presenteie quem você ama</span>
+                <h1>Vale Presente <span data-wl-text="config.business.name"></span></h1>
+                <p>A dúvida do presente acabou. Proporcione uma experiência de cuidado inesquecível.</p>
+            </div>
+        </section>
+
+        <div class="gift-cards-grid">
+            
+            <div class="gift-card-item">
+                <div class="card-visual">
+                    <i class="fas fa-gift"></i>
+                    <h3>Vale Beleza</h3>
+                    <div class="value">R$ 100,00</div>
+                </div>
+                <div class="card-body">
+                    <p>Crédito livre para usar em qualquer procedimento ou produto da loja.</p>
+                    <a href="#" data-wl-href="config.contacts.whatsapp.url" target="_blank" class="btn-gift">COMPRAR AGORA</a>
+                </div>
+            </div>
+
+            <div class="gift-card-item">
+                <div class="card-visual" style="background: linear-gradient(135deg, var(--color-accent) 0%, #8e7b64 100%);">
+                    <i class="fas fa-gem" style="color: #fff;"></i>
+                    <h3>Experiência <span data-wl-text="config.business.name"></span></h3>
+                    <div class="value" style="color: #fff;">R$ 200,00</div>
+                </div>
+                <div class="card-body">
+                    <p>O valor ideal para garantir uma Limpeza de Pele completa ou Peeling.</p>
+                    <a href="#" data-wl-href="config.contacts.whatsapp.url" target="_blank" class="btn-gift" style="background-color: var(--color-primary);">COMPRAR AGORA</a>
+                </div>
+            </div>
+
+            <div class="gift-card-item">
+                <div class="card-visual">
+                    <i class="fas fa-spa"></i>
+                    <h3>Spa Day</h3>
+                    <div class="value">Personalizado</div>
+                </div>
+                <div class="card-body">
+                    <p>Monte um pacote exclusivo de Massagem + Facial para surpreender.</p>
+                    <a href="#" data-wl-href="config.contacts.whatsapp.url" target="_blank" class="btn-gift">MONTAR PACOTE</a>
+                </div>
+            </div>
+
+        </div>
+
+        <section class="how-it-works">
+            <h2 style="color: var(--color-primary);">Como funciona?</h2>
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-icon"><i class="fas fa-mouse-pointer"></i></div>
+                    <h4>1. Você Escolhe</h4>
+                    <p style="font-size: 0.9em;">Defina o valor ou o tratamento que deseja presentear.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon"><i class="fas fa-qrcode"></i></div>
+                    <h4>2. Pagamento Online</h4>
+                    <p style="font-size: 0.9em;">Pague via Pix ou Cartão de forma rápida e segura no WhatsApp.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon"><i class="fas fa-envelope-open-text"></i></div>
+                    <h4>3. Envio Digital</h4>
+                    <p style="font-size: 0.9em;">Enviamos um Cartão Virtual lindo para você mandar para a pessoa.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <script src="assets/js/auth.js" defer></script>
+
+    <script src="assets/js/functions.js" defer></script> 
+    <script src="assets/js/main.js" defer></script> 
+</body>
+</html>

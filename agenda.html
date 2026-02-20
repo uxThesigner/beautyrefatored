@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="config/config.js"></script>
+    <script src="config/theme.js"></script>
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Agenda Profissional | Admin</title>
+
+    <link rel="stylesheet" href="assets/css/app-mobile.css">
+
+    <style>
+        :root { --sidebar-width: 260px; }
+        body { background-color: #f4f7f6; display: flex; min-height: 100vh; }
+
+        /* Reaproveitando Sidebar do Admin */
+        .admin-sidebar { width: var(--sidebar-width); background-color: var(--color-primary); color: white; padding: 30px 20px; position: fixed; height: 100vh; }
+        .admin-nav { list-style: none; margin-top: 40px; }
+        .admin-nav a { color: rgba(255,255,255,0.8); text-decoration: none; display: flex; align-items: center; gap: 12px; padding: 12px 15px; border-radius: var(--radius-btn); margin-bottom: 5px; }
+        .admin-nav a.active { background: var(--color-accent); color: white; }
+
+        .admin-main { margin-left: var(--sidebar-width); width: calc(100% - var(--sidebar-width)); padding: 40px; }
+
+        /* Controles da Agenda */
+        .agenda-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            padding: 20px;
+            border-radius: var(--radius-card);
+            margin-bottom: 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+        }
+
+        .date-navigator { display: flex; align-items: center; gap: 20px; font-weight: 600; color: var(--color-primary); }
+        .btn-nav { background: var(--color-background); border: 1px solid var(--color-border); padding: 8px 12px; border-radius: 5px; cursor: pointer; }
+
+        /* Grid de Horários */
+        .agenda-grid {
+            background: white;
+            border-radius: var(--radius-card);
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+        }
+
+        .agenda-row {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            border-bottom: 1px solid #eee;
+            min-height: 80px;
+        }
+
+        .time-slot {
+            background: #f9f9f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: #777;
+            border-right: 1px solid #eee;
+        }
+
+        .appointment-slot {
+            padding: 10px;
+            position: relative;
+            display: flex;
+            gap: 10px;
+        }
+
+        .appointment-card {
+            background: #eef2f1;
+            border-left: 4px solid var(--color-primary);
+            padding: 10px 15px;
+            border-radius: 4px;
+            flex-grow: 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .appointment-card:hover { transform: scale(1.01); }
+
+        .app-info h4 { font-size: 0.9rem; color: var(--color-primary); }
+        .app-info span { font-size: 0.75rem; color: #666; }
+
+        .slot-free {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ccc;
+            border: 2px dashed #f0f0f0;
+            margin: 5px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.8rem;
+            transition: all 0.3s;
+        }
+
+        .slot-free:hover { background: #fffcf9; border-color: var(--color-accent); color: var(--color-accent); }
+
+        .badge-prof {
+            font-size: 0.7rem;
+            background: var(--color-marquee);
+            padding: 2px 8px;
+            border-radius: 10px;
+            color: var(--color-primary);
+        }
+    </style>
+</head>
+<body class="admin-app">
+
+    <div id="admin-sidebar-placeholder"></div>
+
+    <main class="admin-main">
+        <header style="margin-bottom: 30px;">
+            <h1 style="color: var(--color-primary);">Gestão de Agenda</h1>
+            <p>Controle de horários e profissionais.</p>
+        </header>
+
+        <section class="agenda-controls">
+            <div class="date-navigator">
+                <button class="btn-nav"><i class="fas fa-chevron-left"></i></button>
+                <span>Quinta-feira, 19 de Fevereiro, 2026</span>
+                <button class="btn-nav"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            <div style="display: flex; gap: 10px;">
+                <select class="btn-nav" style="padding: 8px 15px;">
+                    <option>Todas as Profissionais</option>
+                    <option>Hillary Vitória</option>
+                    <option>Tays Alves</option>
+                </select>
+                <button class="btn" style="background: var(--color-primary); color: white; border: none; padding: 10px 20px; border-radius: 5px;">HOJE</button>
+            </div>
+        </section>
+
+        <div class="agenda-grid">
+            <div class="agenda-row">
+                <div class="time-slot">08:00</div>
+                <div class="appointment-slot">
+                    <div class="appointment-card">
+                        <div class="app-info">
+                            <h4>Mariana Silva</h4>
+                            <span>Limpeza de Pele • <span class="badge-prof">Hillary</span></span>
+                        </div>
+                        <div class="app-status"><i class="fas fa-check-circle" style="color: #2ecc71;"></i></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="agenda-row">
+                <div class="time-slot">09:00</div>
+                <div class="appointment-slot">
+                    <a href="#" class="slot-free">+ Disponível para agendamento</a>
+                </div>
+            </div>
+
+            <div class="agenda-row">
+                <div class="time-slot">10:00</div>
+                <div class="appointment-slot">
+                    <div class="appointment-card" style="border-left-color: var(--color-accent);">
+                        <div class="app-info">
+                            <h4>Fernanda Oliveira</h4>
+                            <span>Microagulhamento • <span class="badge-prof">Tays</span></span>
+                        </div>
+                        <div class="app-status"><i class="fas fa-clock" style="color: #f39c12;"></i></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="agenda-row">
+                <div class="time-slot">11:00</div>
+                <div class="appointment-slot">
+                    <a href="#" class="slot-free">+ Disponível para agendamento</a>
+                </div>
+            </div>
+            
+            </div>
+    </main>
+
+    <script src="assets/js/auth.js" defer></script>
+    <script src="assets/js/functions.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/admin-shell.js"></script>
+</body>
+</html>

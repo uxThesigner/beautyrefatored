@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="config/config.js"></script>
+    <script src="config/theme.js"></script>
+    <meta name="theme-color" content="#454F4A">
+
+    <title>Quem Somos</title>
+    <meta name="description" content="">
+
+    
+    <link rel="canonical" href="">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="">
+    <meta property="og:url" content="">
+    <meta property="og:title" content="">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="">
+    <meta name="twitter:title" content="">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="">
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        /* --- ESTILOS ESPECÍFICOS DA PÁGINA QUEM SOMOS --- */
+        
+        /* 1. Hero Simples e Elegante */
+        .about-hero {
+            padding: 180px 20px 100px;
+            background-color: #fdfcf8;
+            text-align: center;
+            background-image: radial-gradient(var(--color-accent) 0.5px, transparent 0.5px);
+            background-size: 30px 30px;
+        }
+
+        .about-hero h1 {
+            font-family: var(--font-sans);
+            font-size: 2.8em;
+            color: var(--color-primary);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .about-hero span {
+            font-family: var(--font-script);
+            font-size: 2.5em;
+            color: var(--color-accent);
+            display: block;
+        }
+
+        /* 2. Seção da especialista (Bio) */
+        .bio-section {
+            padding: 80px 20px;
+            background-color: #fff;
+        }
+
+        .bio-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .bio-image-wrapper {
+            flex: 1;
+            position: relative;
+        }
+
+        /* Moldura Dupla na Foto */
+        .bio-img {
+            width: 100%;
+            max-width: 450px;
+            border-radius: 10px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            display: block;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .bio-image-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: -20px;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--color-accent);
+            border-radius: 10px;
+            z-index: 1;
+        }
+
+        .bio-content {
+            flex: 1.2;
+        }
+
+        .bio-content h2 {
+            font-size: 2em;
+            color: var(--color-primary);
+            margin-bottom: 20px;
+        }
+
+        .bio-role {
+            color: var(--color-accent);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 25px;
+            display: block;
+        }
+
+        .bio-text p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-size: 1.05em;
+        }
+
+        .signature {
+            font-family: var(--font-script);
+            font-size: 2em;
+            color: var(--color-primary);
+            margin-top: 30px;
+        }
+
+        /* 3. Missão / Visão / Valores */
+        .values-section {
+            background-color: var(--color-primary);
+            color: #fff;
+            padding: 80px 20px;
+        }
+
+        .values-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+
+        .value-card {
+            padding: 20px;
+        }
+
+        .value-icon {
+            font-size: 2.5em;
+            color: var(--color-accent);
+            margin-bottom: 20px;
+        }
+
+        .value-card h3 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            color: var(--color-marquee);
+        }
+
+        .value-card p {
+            font-size: 0.95em;
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        /* 4. A Clínica (Galeria/Espaço) */
+        .clinic-section {
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .clinic-text {
+            max-width: 700px;
+            margin: 0 auto 50px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 5px;
+            transition: transform 0.3s;
+        }
+
+        .gallery-img:hover {
+            transform: scale(1.02);
+        }
+
+        /* Responsivo */
+        @media (max-width: 900px) {
+            .bio-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .bio-image-wrapper::before {
+                left: 10px; /* Ajuste da moldura no mobile */
+                top: 10px;
+            }
+        }
+    </style>
+</head>
+<body class="page-with-fixed-header">
+
+    <div id="header-placeholder"></div>
+
+    <main>
+        
+        <section class="about-hero">
+            <div class="container">
+                <h1>Sobre Nós</h1>
+                <span>Nossa essência é cuidar de você</span>
+            </div>
+        </section>
+
+        <section class="bio-section">
+            <div class="bio-container">
+                <div class="bio-image-wrapper">
+                    <img src="imagens/owner.jpg" data-wl-src="theme.assets.ownerPhoto" alt="" data-wl-alt="config.business.ownerName" loading="lazy" class="bio-img">
+                </div>
+                
+                <div class="bio-content">
+                    <span class="bio-role">Fundadora & Esteticista</span>
+                    <h2><span data-wl-text="config.business.ownerName"></span></h2>
+                    
+                    <div class="bio-text">
+                        <p>
+                            Apaixonada pela arte de cuidar, acredito que a estética vai muito além da aparência: é sobre <strong>autoestima, saúde e bem-estar</strong>. 
+                        </p>
+                        <p>
+                            Fundei a <span data-wl-text="config.business.name"></span> com o propósito de oferecer um espaço acolhedor, onde cada cliente é única. Minha abordagem une técnicas avançadas com um olhar humanizado, respeitando a naturalidade dos seus traços.
+                        </p>
+                        <p>
+                            Aqui, não buscamos padrões inalcançáveis, mas sim a melhor versão de você mesma. Seja bem-vinda ao nosso universo de cuidado.
+                        </p>
+                    </div>
+
+                    <div class="signature"><span data-wl-text="config.business.ownerName"></span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="values-section">
+            <div class="values-grid">
+                <div class="value-card">
+                    <i class="fas fa-heart value-icon"></i>
+                    <h3>Humanização</h3>
+                    <p>Cada pele conta uma história. Nosso atendimento é personalizado, ouvindo suas necessidades antes de qualquer protocolo.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-gem value-icon"></i>
+                    <h3>Excelência</h3>
+                    <p>Produtos de alta performance e tecnologia de ponta. Não abrimos mão da qualidade para garantir sua segurança e resultados.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-leaf value-icon"></i>
+                    <h3>Naturalidade</h3>
+                    <p>Acreditamos na beleza real. Nossos tratamentos visam realçar o que você tem de melhor, sem transformações artificiais.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="clinic-section">
+            <div class="clinic-text">
+                <h2 style="color: var(--color-primary); font-size: 2em; margin-bottom: 15px;">Nosso Espaço</h2>
+                <div class="section-divider" style="background: var(--color-accent); height: 3px; width: 50px; margin: 0 auto 20px;"></div>
+                <p style="color: #666;">
+                    Um ambiente pensado nos mínimos detalhes para proporcionar relaxamento e conforto desde o momento em que você entra.
+                </p>
+            </div>
+
+            <div class="gallery-grid">
+                <img src="imagens/Banners/espaco1.jpg" alt="Recepção" class="gallery-img" style="background: #eee;">
+                <img src="imagens/Banners/espaco2.jpg" alt="Sala de Atendimento" class="gallery-img" style="background: #ddd;">
+                <img src="imagens/Banners/espaco3.jpg" alt="Detalhes" class="gallery-img" style="background: #eee;">
+                <img src="imagens/Banners/espaco4.jpg" alt="Café e Conforto" class="gallery-img" style="background: #ddd;">
+            </div>
+
+            <div style="margin-top: 50px;">
+                <a href="avaliacao.html" class="btn btn-primary" style="padding: 15px 40px; font-size: 1.1em;">VENHA NOS CONHECER</a>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <script src="assets/js/auth.js" defer></script>
+
+    <script src="assets/js/functions.js" defer></script> 
+    <script src="assets/js/main.js" defer></script> 
+</body>
+</html>

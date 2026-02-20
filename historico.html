@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="config/config.js"></script>
+    <script src="config/theme.js"></script>
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Meu Histórico | Beauty Esthetica</title>
+    <link rel="stylesheet" href="assets/css/app-mobile.css">
+
+    <style>
+        body { background-color: #f8f9fa; display: flex; min-height: 100vh; margin: 0; }
+        
+        /* Sidebar (Padrão corrigido) */
+        .client-sidebar { 
+            width: 280px; background: white; padding: 40px 20px; 
+            border-right: 1px solid var(--color-border); position: fixed; height: 100vh; 
+        }
+        .client-photo { 
+            width: 80px; height: 80px; background: var(--color-marquee); 
+            border-radius: 50%; margin: 0 auto 15px; display: flex; 
+            align-items: center; justify-content: center; font-size: 1.5rem; font-weight: bold; color: var(--color-primary);
+        }
+        .client-info-box { text-align: center; margin-bottom: 30px; }
+        .client-status-badge { font-size: 0.65rem; background: #fff4e5; color: #d35400; padding: 3px 10px; border-radius: 10px; font-weight: bold; }
+
+        /* Área de Conteúdo */
+        /* Evita overflow horizontal: width precisa considerar a sidebar fixa */
+        .main-content { margin-left: 280px; width: calc(100% - 280px); padding: 60px; box-sizing: border-box; }
+
+        /* Linha do Tempo / Lista */
+        .history-list { display: flex; flex-direction: column; gap: 15px; max-width: 800px; }
+
+        .history-item {
+            background: white;
+            padding: 20px;
+            border-radius: var(--radius-card);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            display: grid;
+            grid-template-columns: 80px 1fr auto;
+            align-items: center;
+            gap: 20px;
+            border-left: 4px solid transparent;
+            transition: 0.3s;
+        }
+        .history-item:hover { border-left-color: var(--color-accent); transform: translateX(5px); }
+
+        .date-box {
+            text-align: center;
+            border-right: 1px solid #eee;
+            padding-right: 20px;
+        }
+        .date-box span { display: block; }
+        .date-day { font-size: 1.4rem; font-weight: bold; color: var(--color-primary); }
+        .date-month { font-size: 0.7rem; text-transform: uppercase; color: #999; }
+
+        .service-info h4 { margin: 0; color: var(--color-primary); font-size: 1rem; }
+        .service-info p { margin: 5px 0 0; font-size: 0.85rem; color: #777; }
+
+        .btn-repeat {
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            color: var(--color-primary);
+            transition: 0.3s;
+        }
+        .btn-repeat:hover { background: var(--color-primary); color: white; border-color: var(--color-primary); }
+
+        .status-done { color: #0ca678; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; margin-bottom: 5px; display: block; }
+
+        @media (max-width: 768px) {
+            .client-sidebar { display: none; }
+            .main-content { margin-left: 0; padding: 20px; }
+            .history-item { grid-template-columns: 1fr auto; }
+            .date-box { display: none; }
+        }
+    </style>
+</head>
+<body class="client-app">
+
+    <div id="client-sidebar-placeholder"></div>
+
+    <main class="main-content">
+        <header style="margin-bottom: 40px; display: flex; justify-content: space-between; align-items: flex-end;">
+            <div>
+                <h1 style="color: var(--color-primary);">Meu Histórico</h1>
+                <p>Confira todos os seus momentos de autocuidado conosco.</p>
+            </div>
+            <div style="font-size: 0.8rem; color: #999;">Total: 12 visitas</div>
+        </header>
+
+        <div class="history-list">
+            
+            <div class="history-item">
+                <div class="date-box">
+                    <span class="date-day">15</span>
+                    <span class="date-month">Fev</span>
+                </div>
+                <div class="service-info">
+                    <span class="status-done"><i class="fas fa-check-circle"></i> Realizado</span>
+                    <h4>Limpeza de Pele Profunda + Ledterapia</h4>
+                    <p>Profissional: Dra. Hillary Vitória • Duração: 1h 30min</p>
+                </div>
+                <button class="btn-repeat" type="button" data-go-to="novo.html"><i class="fas fa-redo"></i> REPETIR</button>
+            </div>
+
+            <div class="history-item">
+                <div class="date-box">
+                    <span class="date-day">20</span>
+                    <span class="date-month">Jan</span>
+                </div>
+                <div class="service-info">
+                    <span class="status-done"><i class="fas fa-check-circle"></i> Realizado</span>
+                    <h4>Peeling de Diamante</h4>
+                    <p>Profissional: Tays Alves • Duração: 45min</p>
+                </div>
+                <button class="btn-repeat" type="button" data-go-to="novo.html"><i class="fas fa-redo"></i> REPETIR</button>
+            </div>
+
+            <div class="history-item">
+                <div class="date-box">
+                    <span class="date-day">10</span>
+                    <span class="date-month">Dez</span>
+                </div>
+                <div class="service-info">
+                    <span class="status-done"><i class="fas fa-check-circle"></i> Realizado</span>
+                    <h4>Drenagem Linfática Corporal</h4>
+                    <p>Profissional: Dra. Hillary Vitória • Duração: 1h</p>
+                </div>
+                <button class="btn-repeat" type="button" data-go-to="novo.html"><i class="fas fa-redo"></i> REPETIR</button>
+            </div>
+
+        </div>
+
+        <div style="margin-top: 40px; text-align: center;">
+            <button class="btn-view" style="background: none; border: none; color: var(--color-accent); cursor: pointer; font-weight: 600;">CARREGAR MAIS</button>
+        </div>
+    </main>
+
+    <script src="assets/js/auth.js" defer></script>
+    <script src="assets/js/functions.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/client-shell.js" defer></script>
+    <script src="assets/js/pages/historico.js" defer></script>
+</body>
+</html>

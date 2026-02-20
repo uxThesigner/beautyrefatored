@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="config/config.js"></script>
+    <script src="config/theme.js"></script>
+    <title>Detalhes do Produto</title>
+
+    <meta name="description" content="" id="product-description">
+    
+    <link rel="canonical" href="">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="">
+    <meta property="og:url" content="">
+    <meta property="og:title" content="">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="">
+    <meta name="twitter:title" content="">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="">
+<meta name="theme-color" content="#454F4A" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#454F4A" media="(prefers-color-scheme: dark)"><link rel="icon" href="imagens/favicon.png" data-wl-href="theme.assets.favicon" type="image/png">
+
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/page-product.css">
+    
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="product-detail-page page-with-fixed-header"> 
+
+    <div id="header-placeholder"></div>
+
+    <main>
+
+        <section class="internal-banner-wrapper search-hero-banner">
+            <div class="internal-banner-carousel" id="internal-banner-carousel-produto">
+                <div class="internal-banner-item active" style="background-image: var(--asset-search-banner-1);"></div>
+                <div class="internal-banner-item" style="background-image: var(--asset-search-banner-2);"></div>
+                <div class="internal-banner-item" style="background-image: var(--asset-search-banner-3);"></div>
+                <div class="internal-banner-item" style="background-image: var(--asset-search-banner-4);"></div>
+            </div>
+        </section>
+
+        <div class="container product-detail-main">
+            <div class="product-detail-grid">
+
+                <div class="product-gallery">
+                    <div class="main-photo-container">
+                        <img id="main-product-image" src="" alt="Foto principal do produto">
+                    </div>
+                    <div class="thumbnail-gallery" id="thumbnail-gallery"></div>
+                </div>
+
+                <div class="product-info-details">
+
+                    <nav class="breadcrumb-nav">
+                        <a href="index.html">Início</a> / 
+                        <a href="busca.html">Catálogo</a> / 
+                        <span class="current-item">Detalhes</span>
+                    </nav>
+
+                    <h1 id="product-name">Nome do Produto</h1>
+
+                    <div class="product-meta-detail">
+                        <span id="product-rating"><i class="fas fa-star"></i> 0.0</span>
+                        <span id="product-reviews">(0 reviews)</span>
+                    </div>
+
+                    <div class="price-box-detail">
+                        <span class="price-tag-detail">a partir de</span>
+                        <span class="current-price-detail" id="product-price">R$ 0,00</span>
+                    </div>
+
+                    <p class="product-material-desc">
+                        <strong>Info:</strong> <span id="product-material">...</span>
+                    </p>
+
+                    <form id="add-to-cart-form">
+                        
+                        <div class="form-group">
+                            <label for="color-select">Variação:</label>
+                            <select id="color-select" name="color" required>
+                                </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="size-select">Opção:</label>
+                            <select id="size-select" name="size" required>
+                                </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="quantity-input">Quantidade:</label>
+                            <input type="number" id="quantity-input" name="quantity" value="1" min="1" required>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary add-to-cart-btn">
+                            <i class="fas fa-shopping-cart"></i> ADICIONAR AO CARRINHO
+                        </button>
+                        <p id="add-to-cart-message" class="form-message-success"></p>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+        <section class="product-description-section">
+            <div class="container">
+
+                <div class="desc-main-block">
+                    <h2 class="desc-title" id="desc-heading-main">Sobre</h2>
+                    <p class="desc-text" id="desc-content-main">
+                        Carregando informações...
+                    </p>
+                </div>
+
+                <div class="desc-separator"></div>
+
+                <div class="desc-details-grid">
+                    <div class="desc-column">
+                        <div class="desc-icon-title">
+                            <i class="fas fa-sparkles" id="icon-usage"></i>
+                            <h3 id="desc-heading-usage">Benefícios</h3>
+                        </div>
+                        <p class="desc-text-small" id="desc-content-usage">...</p>
+                    </div>
+
+                    <div class="desc-column">
+                        <div class="desc-icon-title">
+                            <i class="fas fa-user-md" id="icon-care"></i>
+                            <h3 id="desc-heading-care">Orientação Profissional</h3>
+                        </div>
+                        <p class="desc-text-small" id="desc-content-care">...</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="product-slider-section" id="related-section" style="display: none; border-top: 1px solid var(--color-border);">
+            <div class="container">
+                <h2>VEJA TAMBÉM</h2>
+                <div class="slider-wrapper">
+                    <div class="product-slider" id="related-products-slider">
+                        </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+<script src="assets/js/services.js" defer></script>
+    <script src="assets/js/products.js" defer></script>
+    <script src="assets/js/coupons.js" defer></script>
+    <script src="assets/js/partners.js" defer></script>
+    <script src="assets/js/auth.js" defer></script>
+
+    <script src="assets/js/functions.js" defer></script> 
+    <script src="assets/js/main.js" defer></script>      
+</body>
+</html>

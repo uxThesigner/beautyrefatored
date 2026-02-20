@@ -1,0 +1,182 @@
+<header class="header">
+    <div class="header-content">
+
+        <div class="nav-left">
+            <a href="index.html" class="logo">
+                <img src="imagens/logo.svg" data-wl-src="theme.assets.logoHeader" data-wl-alt="config.business.name" alt="Logo" class="logo-img">
+            </a>
+
+            <nav class="nav-menu">
+                <ul>
+                    <li data-wl-feature="club">
+                        <a href="clube.html" data-wl-href="config.links.club" style="color: var(--color-accent); font-weight: 600; display: flex; align-items: center; gap: 5px;">
+                            <span data-wl-text="config.business.clubLabel"></span> <i class="fas fa-crown"></i>
+                        </a>
+                    </li>
+
+                    <li class="nav-dropdown"> 
+                        <button type="button" class="dropdown-toggle">SERVIÇOS</button>
+                        <ul class="dropdown-menu"> 
+                            <li><a href="busca.html?q=facial servico">Facial</a></li>
+                            <li><a href="busca.html?q=corporal servico">Corporal</a></li>
+                            <li><a href="busca.html?q=depilacao servico">Depilação</a></li>
+                            <li><a href="busca.html?q=massagem servico">Massagens & Spa</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-dropdown">
+                        <button type="button" class="dropdown-toggle">PRODUTOS</button>
+                        <ul class="dropdown-menu">
+                            <li><a href="busca.html?q=sabonete">Sabonetes</a></li>
+                            <li><a href="busca.html?q=hidratante">Hidratantes</a></li>
+                            <li><a href="busca.html?q=serum">Sérum</a></li>
+                            <li><a href="busca.html?q=protetor">Protetores</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="promocoes.html" data-wl-href="config.links.promotions" class="promo-destaque" data-wl-feature="promotions"><span data-wl-text="config.business.promotionsLabel"></span></a>
+                    </li>
+
+                    <li>
+                        <a href="avaliacao.html" style="color: var(--color-accent); font-weight: 500;">AVALIAÇÃO GRATUITA</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="header-right">
+            <div class="header-main-icons">
+                <div class="search-box-container">
+                    <input type="text" class="search-input" placeholder="Buscar...">
+                    <button class="search-trigger-btn" aria-label="Pesquisar">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+
+                <a href="carrinho.html" class="cart-icon-link">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span id="cart-count">0</span>
+                </a>
+                <div class="account-dropdown nav-dropdown" id="account-dropdown">
+                    <button type="button" class="account-toggle" aria-label="Minha conta">
+                        <i class="fas fa-user"></i>
+                    </button>
+                    <ul class="dropdown-menu account-menu">
+                        <li class="account-logged-out"><a href="login.html">Logar</a></li>
+                        <li class="account-logged-out"><a href="criar-conta.html">Criar Conta</a></li>
+
+                        <li class="account-logged-in account-role-staff-admin"><a href="admin.html">Painel</a></li>
+
+                        <li class="account-logged-in account-role-client"><a href="dados.html">Meus Dados</a></li>
+                        <li class="account-logged-in account-role-client"><a href="assinatura.html">Assinatura</a></li>
+                        <li class="account-logged-in account-role-client"><a href="meuclub.html">Meu Clube</a></li>
+                        <li class="account-logged-in account-role-client"><a href="historico.html">Histórico</a></li>
+                        <li class="account-logged-in"><a href="#" data-account-action="logout">Sair</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="header-mobile-toggle">
+                 <i class="fas fa-bars menu-toggle"></i>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="mobile-menu">
+    <div class="menu-header">
+        <i class="fas fa-times close-menu" style="margin-left: auto;"></i>
+    </div>
+
+    <nav class="mobile-nav">
+
+        <div class="mobile-search-wrapper">
+            <input type="text" class="search-input mobile-search-input" placeholder="O que você procura?">
+            <button class="mobile-search-btn">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+
+        <ul>
+            <li class="mobile-group" data-wl-feature="club">
+                <a href="clube.html" data-wl-href="config.links.club" class="mobile-direct-link" style="color: var(--color-accent); font-weight: 700; display: flex; align-items: center; justify-content: flex-start; gap: 8px;">
+                    <span data-wl-text="config.business.clubLabel"></span> <i class="fas fa-crown" style="font-size: 0.9em;"></i>
+                </a>
+            </li>
+
+            <li class="mobile-group">
+                <button type="button" class="mobile-dropdown-toggle">
+                    MINHA CONTA <i class="fas fa-chevron-down"></i>
+                </button>
+                <ul class="mobile-dropdown-content account-menu">
+                    <li class="account-logged-out"><a href="login.html">Logar</a></li>
+                    <li class="account-logged-out"><a href="criar-conta.html">Criar Conta</a></li>
+
+                    <li class="account-logged-in account-role-staff-admin"><a href="admin.html">Painel</a></li>
+
+                    <li class="account-logged-in account-role-client"><a href="dados.html">Meus Dados</a></li>
+                    <li class="account-logged-in account-role-client"><a href="assinatura.html">Assinatura</a></li>
+                    <li class="account-logged-in account-role-client"><a href="meuclub.html">Meu Clube</a></li>
+                    <li class="account-logged-in account-role-client"><a href="historico.html">Histórico</a></li>
+                    <li class="account-logged-in"><a href="#" data-account-action="logout">Sair</a></li>
+                </ul>
+            </li>
+
+            <li class="mobile-group">
+                <button type="button" class="mobile-dropdown-toggle">
+                    SERVIÇOS <i class="fas fa-chevron-down"></i>
+                </button>
+                <ul class="mobile-dropdown-content">
+                    <li><a href="busca.html?q=facial servico">Facial</a></li>
+                    <li><a href="busca.html?q=corporal servico">Corporal</a></li>
+                    <li><a href="busca.html?q=depilacao servico">Depilação</a></li>
+                    <li><a href="busca.html?q=massagem servico">Massagens & Spa</a></li>
+                </ul>
+            </li>
+
+            <li class="mobile-group">
+                <button type="button" class="mobile-dropdown-toggle">
+                    PRODUTOS <i class="fas fa-chevron-down"></i>
+                </button>
+                <ul class="mobile-dropdown-content">
+                    <li><a href="busca.html?q=sabonete">Sabonetes</a></li>
+                    <li><a href="busca.html?q=hidratante">Hidratantes</a></li>
+                    <li><a href="busca.html?q=serum">Sérum</a></li>
+                    <li><a href="busca.html?q=protetor">Protetores</a></li>
+                </ul>
+            </li>
+
+            <li class="mobile-group">
+                <a href="promocoes.html" class="mobile-direct-link" style="color: var(--color-accent);"><span data-wl-text="config.business.promotionsLabel"></span></a>
+            </li>
+
+            <li class="mobile-group">
+                <a href="index.html#static-partner-grid" class="mobile-direct-link">PARCERIAS</a>
+            </li>
+
+            <li class="mobile-group">
+                <a href="avaliacao.html" class="mobile-direct-link" style="color: var(--color-accent);">AVALIAÇÃO GRATUITA</a>
+            </li>
+
+            <li class="mobile-group cart-link-mobile">
+                <a href="carrinho.html" class="mobile-direct-link">
+                    MINHA SACOLA <span id="cart-count-mobile">0</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="menu-footer">
+        <p>Siga a <span data-wl-text="config.business.name"></span></p>
+        <div class="social-icons">
+            <a href="#" data-wl-href="config.contacts.instagram.url" target="_blank" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" data-wl-href="config.contacts.whatsapp.url" target="_blank" aria-label="Whatsapp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+        </div>
+    </div>
+</div>

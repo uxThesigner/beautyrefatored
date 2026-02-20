@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="config/config.js"></script>
+    <script src="config/theme.js"></script>
+    <meta name="theme-color" content="#454F4A">
+    <title>Prazos e Entregas</title>
+    
+    
+    
+    <link rel="canonical" href="">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="">
+    <meta property="og:url" content="">
+    <meta property="og:title" content="">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="">
+    <meta name="twitter:title" content="">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="">
+<meta name="description" content=""><link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        .delivery-hero {
+            padding: 160px 20px 60px;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+
+        .delivery-hero h1 {
+            color: var(--color-primary);
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .delivery-hero p {
+            color: #888;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .delivery-content {
+            padding: 60px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Steps (Como funciona) */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .step-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid #eee;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            position: relative;
+        }
+
+        .step-number {
+            background-color: var(--color-accent);
+            color: #fff;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin: 0 auto 20px;
+        }
+
+        .step-card h3 {
+            color: var(--color-primary);
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .step-card p {
+            font-size: 0.9em;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Detalhes por Região */
+        .region-details {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .region-block {
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            border-left: 4px solid var(--color-accent);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .region-block h2 {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: var(--color-primary);
+            margin-bottom: 20px;
+            font-size: 1.4em;
+        }
+
+        .region-block h2 i {
+            color: var(--color-accent);
+        }
+
+        .region-block p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .highlight-box {
+            background-color: #fdfcf8;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px dashed var(--color-accent);
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .region-block {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body class="page-with-fixed-header">
+
+    <div id="header-placeholder"></div>
+
+    <main>
+        <section class="delivery-hero">
+            <div class="container">
+                <h1>Entregas & Frete</h1>
+                <p>Entenda como funcionam nossos envios personalizados para garantir agilidade e o melhor custo-benefício para você.</p>
+            </div>
+        </section>
+
+        <section class="delivery-content">
+            
+            <div class="header-center" style="text-align: center; margin-bottom: 40px;">
+                <h2 style="color: var(--color-primary); font-size: 1.8em;">Como funciona o envio?</h2>
+            </div>
+
+            <div class="process-steps">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Faça seu Pedido</h3>
+                    <p>Escolha seus produtos no site e finalize o carrinho. O pedido será enviado automaticamente para o nosso WhatsApp.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Cotação Personalizada</h3>
+                    <p>Ao recebermos seu pedido, simulamos na hora a melhor opção de entrega (Uber, Moto ou Correios) para o seu endereço.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Pagamento & Envio</h3>
+                    <p>Você confirma o valor total (Produtos + Frete) e, após o pagamento, combinamos o horário exato da entrega.</p>
+                </div>
+            </div>
+
+            <div class="region-details">
+                
+                <div class="region-block">
+                    <h2><i class="fas fa-motorcycle"></i> Entregas em <span data-wl-text="config.business.city"></span> (Local)</h2>
+                    <p>Para clientes de <span data-wl-text="config.business.city"></span> e região metropolitana, utilizamos serviços de entrega expressa sob demanda, como <strong>Uber Flash ou Moto-Entregadores parceiros</strong>.</p>
+                    <p><strong>Vantagens:</strong> Entrega no mesmo dia (para pedidos confirmados em horário comercial) ou agendamento para a data que você preferir.</p>
+                    <div class="highlight-box">
+                        <strong>Dica:</strong> Se preferir, você também pode selecionar a opção <strong>"Retirada na Clínica"</strong> sem custo nenhum. Estamos em <span data-wl-text="config.business.address"></span>.
+                    </div>
+                </div>
+
+                <div class="region-block">
+                    <h2><i class="fas fa-box-open"></i> Outras Cidades e Estados</h2>
+                    <p>Para envios nacionais ou interior, selecionamos a melhor modalidade logística (Correios ou Transportadoras) baseada no peso e urgência.</p>
+                    <p>Durante o atendimento no WhatsApp, passaremos as opções de PAC (Econômico) ou SEDEX (Rápido) para você escolher.</p>
+                    <p><strong>Rastreio:</strong> Assim que postado, você receberá o código de rastreio para acompanhar seu pedido.</p>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <script src="assets/js/auth.js" defer></script>
+
+    <script src="assets/js/functions.js" defer></script> 
+    <script src="assets/js/main.js" defer></script> 
+</body>
+</html>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+   <url>
+      <loc>{{SITE_URL}}/</loc>
+      <lastmod>2026-02-07</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>1.00</priority>
+   </url>
+
+   <url>
+      <loc>{{SITE_URL}}/clube.html</loc>
+      <lastmod>2026-02-07</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.90</priority>
+   </url>
+
+   <url>
+      <loc>{{SITE_URL}}/promocoes.html</loc>
+      <lastmod>2026-02-07</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.90</priority>
+   </url>
+
+   <url>
+      <loc>{{SITE_URL}}/produtos.html</loc>
+      <lastmod>2026-02-07</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.80</priority>
+   </url>
+
+   <url>
+      <loc>{{SITE_URL}}/presente.html</loc>
+      <lastmod>2026-02-07</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.80</priority>
+   </url>
+
+   <url>
+      <loc>{{SITE_URL}}/quem-somos.html</loc>
+      <lastmod>2026-02-07</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.80</priority>
+   </url>
+
+   <url>
+      <loc>{{SITE_URL}}/avaliacao.html</loc>
+      <lastmod>2026-02-07</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.70</priority>
+   </url>
+
+   <url>
+      <loc>{{SITE_URL}}/links.html</loc>
+      <lastmod>2026-02-07</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.60</priority>
+   </url>
+
+   <url>
+      <loc>{{SITE_URL}}/busca.html</loc>
+      <lastmod>2026-02-07</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.50</priority>
+   </url>
+
+   <url>
+      <loc>{{SITE_URL}}/politica.html</loc>
+      <lastmod>2026-02-07</lastmod>
+      <changefreq>yearly</changefreq>
+      <priority>0.30</priority>
+   </url>
+
+   <url>
+      <loc>{{SITE_URL}}/termos.html</loc>
+      <lastmod>2026-02-07</lastmod>
+      <changefreq>yearly</changefreq>
+      <priority>0.30</priority>
+   </url>
+
+   <url>
+      <loc>{{SITE_URL}}/prazos.html</loc>
+      <lastmod>2026-02-07</lastmod>
+      <changefreq>yearly</changefreq>
+      <priority>0.30</priority>
+   </url>
+
+   <url>
+      <loc>{{SITE_URL}}/parceiro.html</loc>
+      <lastmod>2026-02-07</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.50</priority>
+   </url>
+
+</urlset>

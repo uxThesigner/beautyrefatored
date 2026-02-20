@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="config/config.js"></script>
+    <script src="config/theme.js"></script>
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Meu Club | Beauty Esthetica</title>
+    <link rel="stylesheet" href="assets/css/app-mobile.css">
+
+    <style>
+        body { background-color: #f8f9fa; display: flex; min-height: 100vh; margin: 0; }
+        
+        /* Sidebar (Padrão corrigido) */
+        .client-sidebar { 
+            width: 280px; background: white; padding: 40px 20px; 
+            border-right: 1px solid var(--color-border); position: fixed; height: 100vh; 
+        }
+        .client-photo { 
+            width: 80px; height: 80px; background: var(--color-marquee); 
+            border-radius: 50%; margin: 0 auto 15px; display: flex; 
+            align-items: center; justify-content: center; font-size: 1.5rem; font-weight: bold; color: var(--color-primary);
+        }
+        .client-info-box { text-align: center; margin-bottom: 30px; }
+        .client-status-badge { font-size: 0.65rem; background: #fff4e5; color: #d35400; padding: 3px 10px; border-radius: 10px; font-weight: bold; }
+
+        /* Área de Conteúdo */
+        /* Evita overflow horizontal: width precisa considerar a sidebar fixa */
+        .main-content { margin-left: 280px; width: calc(100% - 280px); padding: 60px; box-sizing: border-box; }
+        
+        .club-welcome-card {
+            background: linear-gradient(135deg, var(--color-primary) 0%, #2c3431 100%);
+            color: white;
+            padding: 40px;
+            border-radius: var(--radius-card);
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        .club-welcome-card i.bg-crown {
+            position: absolute; right: -20px; bottom: -20px;
+            font-size: 10rem; color: rgba(255,255,255,0.05); transform: rotate(-15deg);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 25px;
+            border-radius: var(--radius-card);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid #f0f0f0;
+        }
+
+        .benefit-card i { color: var(--color-accent); font-size: 1.5rem; margin-bottom: 15px; }
+        .benefit-card h4 { color: var(--color-primary); margin-bottom: 10px; }
+        .benefit-card p { font-size: 0.85rem; color: #777; line-height: 1.4; }
+
+        .usage-bar {
+            height: 8px; background: #eee; border-radius: 10px; margin-top: 15px; overflow: hidden;
+        }
+        .usage-fill {
+            height: 100%; background: var(--color-accent); width: 0%; transition: 1s ease-in-out;
+        }
+
+        @media (max-width: 768px) {
+            .client-sidebar { display: none; }
+            .main-content { margin-left: 0; padding: 20px; }
+        }
+    </style>
+</head>
+<body class="client-app">
+
+    <div id="client-sidebar-placeholder"></div>
+
+    <main class="main-content">
+        <header style="margin-bottom: 40px;">
+            <h1 style="color: var(--color-primary);">Meu Beauty Club</h1>
+            <p>Você faz parte da nossa elite. Aproveite seus benefícios exclusivos.</p>
+        </header>
+
+        <div class="club-welcome-card">
+            <i class="fas fa-crown bg-crown"></i>
+            <h2 style="margin-bottom: 10px;">Plano VIP Gold</h2>
+            <p>Assinante desde Janeiro de 2026</p>
+            <div style="margin-top: 20px;">
+                <span style="font-size: 0.8rem; opacity: 0.8;">Pontos Acumulados:</span>
+                <h3 style="color: var(--color-accent);">1.250 pts</h3>
+            </div>
+        </div>
+
+        <h3 style="color: var(--color-primary); margin-bottom: 20px;">Meus Benefícios do Mês</h3>
+        
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <i class="fas fa-sparkles"></i>
+                <h4>Limpeza de Pele Profunda</h4>
+                <p>1 procedimento mensal incluso no seu plano.</p>
+                <div style="display: flex; justify-content: space-between; font-size: 0.7rem; margin-top: 15px;">
+                    <span>STATUS: DISPONÍVEL</span>
+                    <span>1/1</span>
+                </div>
+                <div class="usage-bar"><div class="usage-fill" style="width: 100%;"></div></div>
+            </div>
+
+            <div class="benefit-card">
+                <i class="fas fa-percent"></i>
+                <h4>Desconto em Produtos</h4>
+                <p>15% OFF em qualquer home care da loja.</p>
+                <div style="display: flex; justify-content: space-between; font-size: 0.7rem; margin-top: 15px;">
+                    <span>USO ILIMITADO</span>
+                    <i class="fas fa-infinity"></i>
+                </div>
+                <div class="usage-bar"><div class="usage-fill" style="width: 100%;"></div></div>
+            </div>
+
+            <div class="benefit-card" style="opacity: 0.6;">
+                <i class="fas fa-gift"></i>
+                <h4>Mimo Surpresa</h4>
+                <p>Retire seu presente mensal na recepção.</p>
+                <div style="display: flex; justify-content: space-between; font-size: 0.7rem; margin-top: 15px;">
+                    <span>STATUS: JÁ RESGATADO</span>
+                    <span>0/1</span>
+                </div>
+                <div class="usage-bar"><div class="usage-fill" style="width: 0%;"></div></div>
+            </div>
+        </div>
+
+        <div style="margin-top: 40px; background: white; padding: 25px; border-radius: var(--radius-card); text-align: center;">
+            <p style="font-size: 0.9rem; color: #666;">Deseja fazer um upgrade ou mudar de plano?</p>
+            <a href="#" style="color: var(--color-accent); font-weight: bold; text-decoration: none;">Ver outros planos do Club</a>
+        </div>
+    </main>
+
+    <script src="assets/js/auth.js" defer></script>
+    <script src="assets/js/functions.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/client-shell.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="config/config.js"></script>
+    <script src="config/theme.js"></script>
+    <meta name="theme-color" content="#454F4A">
+
+    <title>Clube</title>
+    <meta name="description" content="">
+
+    
+    <link rel="canonical" href="">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="">
+    <meta property="og:url" content="">
+    <meta property="og:title" content="">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="">
+    <meta name="twitter:title" content="">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="">
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        /* --- ESTILOS EXCLUSIVOS DO  --- */
+
+        /* Hero Section */
+        .club-hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), var(--asset-club-hero); 
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            padding: 160px 20px 100px;
+            text-align: center;
+        }
+
+        .club-hero h1 {
+            font-family: var(--font-sans);
+            font-size: 3em;
+            font-weight: 400;
+            margin-bottom: 5px;
+            letter-spacing: 2px;
+            text-transform: none;
+        }
+
+        .club-hero span {
+            display: block;
+            font-family: var(--font-script);
+            font-size: 2.2em;
+            color: var(--color-accent); 
+            margin-bottom: 20px;
+        }
+
+        .club-hero p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            font-size: 1.1em;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        /* Seção de Benefícios Gerais */
+        .benefits-section {
+            padding: 80px 20px;
+            background-color: #fff;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .benefit-card {
+            background: #fdfcf8;
+            border: 1px solid #eee;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            border-color: var(--color-accent);
+        }
+
+        .benefit-icon {
+            font-size: 2.5em;
+            color: var(--color-accent);
+            margin-bottom: 20px;
+        }
+
+        .benefit-card h3 {
+            color: var(--color-primary);
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .benefit-card p {
+            color: #666;
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+
+        /* --- NOVA SEÇÃO DE PREÇOS (3 PLANOS) --- */
+        .pricing-section {
+            background-color: #f9f9f9; /* Fundo levemente cinza para destacar os cards brancos */
+            padding: 80px 20px;
+            color: #333;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            color: var(--color-primary);
+            font-size: 2.2em;
+            margin-bottom: 10px;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: center; /* Centraliza verticalmente para o destaque funcionar */
+        }
+
+        .plan-card {
+            background: #fff;
+            border-radius: 15px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Destaque do Plano Prata */
+        .plan-card.featured {
+            border: 2px solid var(--color-accent);
+            box-shadow: 0 15px 40px rgba(170, 148, 120, 0.2);
+            transform: scale(1.05);
+            z-index: 2;
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--color-accent);
+            color: #fff;
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+        .plan-header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+
+        .plan-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        .plan-subtitle {
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .plan-header .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--color-primary);
+        }
+
+        .plan-header .period {
+            font-size: 1rem;
+            color: #999;
+            font-weight: 400;
+        }
+
+        .plan-body {
+            flex: 1;
+        }
+
+        .plan-features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 30px 0;
+            text-align: left;
+        }
+
+        .plan-features li {
+            margin-bottom: 15px;
+            color: #666;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.95rem;
+        }
+
+        .plan-features li i {
+            color: var(--color-accent); /* Dourado nos ícones */
+            margin-top: 4px;
+            min-width: 20px; /* Alinha texto se quebrar linha */
+        }
+
+        /* Botões dos Planos */
+        .btn-subscribe {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+            text-transform: none;
+            letter-spacing: 1px;
+            margin-top: auto;
+        }
+
+        .btn-primary {
+            background-color: var(--color-accent);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background-color: #8e7b64;
+        }
+
+        .btn-outline {
+            border: 2px solid var(--color-accent);
+            color: var(--color-accent);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--color-accent);
+            color: #fff;
+        }
+
+        /* FAQ Style Adjustments */
+        .faq-section {
+            padding: 80px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+        .faq-question {
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: 10px;
+            display: block;
+        }
+        .faq-answer {
+            color: #666;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 900px) {
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+            .plan-card.featured {
+                transform: scale(1);
+                order: -1; /* Coloca o destaque no topo no mobile */
+            }
+            .club-hero { padding-top: 140px; }
+            .club-hero h1 { font-size: 2.2em; }
+        }
+    </style>
+</head>
+<body class="page-with-fixed-header">
+
+    <div id="header-placeholder"></div>
+
+    <main>
+        <section class="club-hero">
+            <span>Seja Membro</span>
+            <h1><span data-wl-text="config.business.clubLabel"></span></h1>
+            <p>Mantenha sua pele radiante o ano todo. Escolha o plano ideal para sua rotina de beleza e desfrute de benefícios exclusivos.</p>
+        </section>
+
+        <section class="benefits-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Por que entrar para o <span data-wl-text="config.business.clubLabel"></span>?</h2>
+                    <div class="section-divider" style="background-color: var(--color-accent); height: 2px; width: 60px; margin: 15px auto;"></div>
+                </div>
+
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <i class="fas fa-spa benefit-icon"></i>
+                        <h3>Tratamento Mensal</h3>
+                        <p>Garanta seus procedimentos essenciais (Limpeza ou Massagem) todo mês, sem esquecer de se cuidar.</p>
+                    </div>
+
+                    <div class="benefit-card">
+                        <i class="fas fa-tags benefit-icon"></i>
+                        <h3>Descontos VIP</h3>
+                        <p>Economize de 5% a 20% em todos os produtos e serviços adicionais da clínica, sempre que precisar.</p>
+                    </div>
+
+                    <div class="benefit-card">
+                        <i class="far fa-calendar-check benefit-icon"></i>
+                        <h3>Prioridade na Agenda</h3>
+                        <p>Membros Prata e Ouro têm preferência na marcação de horários nobres e lista de espera.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="pricing-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Escolha seu nível de beleza</h2>
+                    <p>Assinatura mensal recorrente. Cancele quando quiser.</p>
+                </div>
+
+                <div class="pricing-grid">
+                    
+                    <div class="plan-card">
+                        <div class="plan-header">
+                            <h3 style="color: #cd7f32;">BEAUTY BRONZE</h3>
+                            <p class="plan-subtitle">Para quem está começando</p>
+                            <div class="price">R$ 49,90 <span class="period">/mês</span></div>
+                        </div>
+                        <div class="plan-body">
+                            <ul class="plan-features">
+                                <li><i class="fas fa-check"></i> <strong>1x</strong> Limpeza de Pele /mês</li>
+                                <li><i class="fas fa-percent"></i> <strong>5% OFF</strong> Ilimitado (Produtos/Serviços)</li>
+                                <li><i class="fas fa-star"></i> Acesso antecipado a promoções</li>
+                                <li><i class="fas fa-gift"></i> Brinde exclusivo no aniversário</li>
+                            </ul>
+                        </div>
+                        <div class="plan-footer">
+                            <a href="#" target="_blank" class="btn-subscribe btn-outline">
+                                ASSINAR BRONZE
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="plan-card featured">
+                        <div class="popular-badge">MAIS POPULAR</div>
+                        <div class="plan-header">
+                            <h3 style="color: var(--color-accent);">BEAUTY PRATA</h3>
+                            <p class="plan-subtitle">O favorito das clientes</p>
+                            <div class="price">R$ 99,90 <span class="period">/mês</span></div>
+                        </div>
+                        <div class="plan-body">
+                            <ul class="plan-features">
+                                <li><i class="fas fa-check"></i> <strong>1x</strong> Limpeza de Pele /mês</li>
+                                <li><i class="fas fa-check"></i> <strong>1x</strong> Massagem Relaxante /mês</li>
+                                <li><i class="fas fa-percent"></i> <strong>15% OFF</strong> Ilimitado (Produtos/Serviços)</li>
+                                <li><i class="fas fa-calendar-check"></i> Prioridade na Agenda</li>
+                                <li><i class="fas fa-star"></i> Acesso antecipado a promoções</li>
+                                <li><i class="fas fa-gift"></i> Brinde exclusivo no aniversário</li>
+                            </ul>
+                        </div>
+                        <div class="plan-footer">
+                            <a href="#" target="_blank" class="btn-subscribe btn-primary">
+                                QUERO SER PRATA
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="plan-card">
+                        <div class="plan-header">
+                            <h3 style="color: #FFD700;">BEAUTY OURO</h3>
+                            <p class="plan-subtitle">Experiência VIP Completa</p>
+                            <div class="price">R$ 129,90 <span class="period">/mês</span></div>
+                        </div>
+                        <div class="plan-body">
+                            <ul class="plan-features">
+                                <li><i class="fas fa-check"></i> <strong>2x</strong> Limpeza de Pele /mês</li>
+                                <li><i class="fas fa-check"></i> <strong>1x</strong> Massagem Relaxante /mês</li>
+                                <li><i class="fas fa-percent"></i> <strong>20% OFF</strong> Ilimitado (Produtos/Serviços)</li>
+                                <li><i class="fas fa-crown"></i> Prioridade Total na Agenda</li>
+                                <li><i class="fas fa-user-friends"></i> <strong>10% OFF</strong> para Acompanhante</li>
+                                <li><i class="fas fa-handshake"></i> <strong>5% OFF</strong> em Parceiros</li>
+                                <li><i class="fas fa-gift"></i> Super Brinde no aniversário</li>
+                            </ul>
+                        </div>
+                        <div class="plan-footer">
+                            <a href="#" target="_blank" class="btn-subscribe btn-outline">
+                                ASSINAR OURO
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-section">
+            <div class="section-header">
+                <h2 class="section-title">Dúvidas Frequentes</h2>
+            </div>
+
+            <div class="faq-item">
+                <span class="faq-question">Tem fidelidade? Posso cancelar?</span>
+                <p class="faq-answer">Não exigimos fidelidade de longo prazo. O <span data-wl-text="config.business.clubLabel"></span> funciona como uma assinatura de streaming. Se precisar cancelar, basta avisar nossa equipe com 5 dias de antecedência da próxima cobrança.</p>
+            </div>
+
+            <div class="faq-item">
+                <span class="faq-question">Como agendo meu serviço mensal?</span>
+                <p class="faq-answer">Após assinar, você entra para nossa lista VIP no WhatsApp. Todo mês nossa equipe entra em contato para agendar seu horário, ou você pode nos chamar quando preferir.</p>
+            </div>
+
+            <div class="faq-item">
+                <span class="faq-question">Como uso meu desconto exclusivo?</span>
+                <p class="faq-answer">Após a assinatura, você receberá um cupom exclusivo (ex: CLUBE15 para o plano Prata) para usar no site ou informando na recepção. O desconto varia de 5% a 20% dependendo do seu plano.</p>
+            </div>
+
+            <div class="faq-item">
+                <span class="faq-question">Como é feita a cobrança?</span>
+                <p class="faq-answer">Via cartão de crédito ou Pix Recorrente em ambiente 100% seguro. O valor é debitado mensalmente no dia da sua adesão.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <script src="assets/js/auth.js" defer></script>
+
+    <script src="assets/js/functions.js" defer></script> 
+    <script src="assets/js/main.js" defer></script> 
+</body>
+</html>
