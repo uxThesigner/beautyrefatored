@@ -1,0 +1,238 @@
+/* page-partner.css - Perfil do Parceiro (Versão Final Revisada) */
+
+/* --- 1. CABEÇALHO DO PERFIL --- */
+.partner-profile-header {
+    background-color: var(--color-background);
+    padding: 60px 0;
+    text-align: center;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.partner-avatar-large {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #fff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+.partner-profile-header h1 {
+    font-family: var(--font-sans);
+    font-size: 2.2em;
+    color: var(--color-primary);
+    margin-bottom: 5px;
+}
+
+.partner-role-tag {
+    display: inline-block;
+    background-color: var(--color-accent);
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.partner-company {
+    font-size: 1.1em;
+    color: #666;
+    font-weight: 300;
+}
+
+/* --- 2. CONTEÚDO PRINCIPAL (BIO E SERVIÇOS) --- */
+.partner-content-section {
+    padding: 60px 0 40px 0;
+}
+
+.partner-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+}
+
+.partner-bio-box h3, 
+.partner-services-box h3 {
+    font-size: 1.4em;
+    color: var(--color-primary);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--color-border);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.partner-description {
+    font-size: 1.05em;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.partner-contact-info p {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #444;
+}
+.partner-contact-info i {
+    color: var(--color-accent);
+    font-size: 1.2em;
+    width: 25px;
+    text-align: center;
+}
+
+/* Lista de Serviços */
+.service-list-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0;
+    border-bottom: 1px dashed #eee;
+}
+.service-list-item:last-child { border-bottom: none; }
+.service-name { font-weight: 600; color: #555; }
+.service-price { color: var(--color-accent); font-weight: 700; }
+
+
+/* --- 3. PORTFÓLIO (ESTILO EDITORIAL / TARJA VERDE) --- */
+
+.partner-portfolio-section {
+    width: 100%;
+    background-color: var(--color-primary); /* Fundo Verde da Marca */
+    padding: 60px 0 80px 0;
+    margin-top: 40px;
+}
+
+.partner-portfolio-section h2 {
+    color: #fff;
+    font-family: var(--font-sans);
+    font-size: 1.1em;
+    font-weight: 300;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 50px;
+    border: none;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); 
+    gap: 40px 30px; 
+    justify-content: center;
+}
+
+.portfolio-item-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.portfolio-img-box {
+    width: 100%;
+    height: 180px; 
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: transform 0.3s ease;
+}
+
+.portfolio-img-box:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-accent);
+}
+
+.portfolio-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.portfolio-caption {
+    color: var(--color-marquee); /* Cor bege claro */
+    font-size: 0.85em;
+    font-weight: 400;
+    text-align: center;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+/* --- 4. BOTÕES DE AÇÃO (Versão Compacta) --- */
+
+.partner-action-buttons {
+    display: flex;
+    gap: 10px; /* Espaço sutil entre botões */
+    margin-top: 25px;
+    justify-content: center; /* Centraliza no container */
+    max-width: 380px; /* Largura máxima para não ficar gigante no PC */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-partner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    
+    /* Tamanho Reduzido */
+    padding: 8px 15px; 
+    font-size: 0.85em;
+    
+    border-radius: 50px; /* Formato Pílula */
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    flex: 1; /* Ocupam o mesmo tamanho */
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-partner:hover { 
+    opacity: 0.9; 
+    transform: translateY(-2px);
+}
+
+.btn-instagram {
+    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+}
+
+.btn-whatsapp {
+    background-color: var(--color-primary); /* Verde da marca */
+}
+
+
+/* --- RESPONSIVO --- */
+@media (max-width: 768px) {
+    .partner-grid { 
+        grid-template-columns: 1fr; 
+        gap: 40px; 
+    }
+
+    .portfolio-grid {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 30px 15px;
+    }
+
+    .portfolio-img-box {
+        height: 140px; 
+    }
+
+    /* Ajuste Mobile dos Botões: Lado a Lado Compacto */
+    .partner-action-buttons {
+        max-width: 100%;
+        padding: 0 10px;
+    }
+
+    .btn-partner {
+        font-size: 0.8em; /* Fonte um pouquinho menor no celular */
+        padding: 10px 5px; /* Altura confortável para o toque */
+    }
+}

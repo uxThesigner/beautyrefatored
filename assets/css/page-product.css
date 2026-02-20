@@ -1,0 +1,378 @@
+/* page-product.css - White-label (Versão Final: Editorial + Seletor de Regiões) */
+
+/* --- LAYOUT GERAL --- */
+.product-detail-main {
+    padding-top: 60px;
+    padding-bottom: 80px;
+}
+
+.product-detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Duas colunas iguais */
+    gap: 60px;
+}
+
+/* --- GALERIA DE FOTOS (ESQUERDA) --- */
+.product-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.main-photo-container {
+    width: 100%;
+    padding-bottom: 100%; /* Proporção Quadrada 1:1 */
+    height: 0;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+}
+
+.main-photo-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.thumbnail-gallery {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 miniaturas */
+    gap: 10px;
+}
+
+.thumbnail-item {
+    width: 100%;
+    padding-bottom: 100%;
+    height: 0;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: all 0.2s;
+    border-radius: 4px;
+}
+
+.thumbnail-item:hover,
+.thumbnail-item.active {
+    opacity: 1;
+    border-color: var(--color-accent);
+}
+
+.thumbnail-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* --- INFORMAÇÕES (DIREITA) --- */
+
+/* Breadcrumb (Navegação no topo) */
+.breadcrumb-nav {
+    font-size: 0.85em;
+    color: #888;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.breadcrumb-nav a {
+    text-decoration: none;
+    color: #888;
+    transition: color 0.2s;
+}
+.breadcrumb-nav a:hover {
+    color: var(--color-accent);
+}
+.breadcrumb-nav .current-item {
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+.product-info-details h1 {
+    font-size: 2.2em;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 10px;
+    color: var(--color-primary);
+}
+
+.product-meta-detail {
+    font-size: 0.9em;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+.product-meta-detail span {
+    margin-right: 15px;
+}
+
+.product-meta-detail #product-rating {
+    font-weight: 700;
+    color: var(--color-text);
+}
+.product-meta-detail #product-rating .fas {
+    color: var(--color-accent);
+    margin-right: 5px;
+}
+
+.price-box-detail {
+    margin-bottom: 25px;
+}
+
+.price-tag-detail {
+    font-size: 0.9em;
+    font-weight: 400;
+    color: #555;
+    display: block;
+}
+
+.current-price-detail {
+    font-size: 2.5em;
+    font-weight: 800;
+    color: var(--color-highlight);
+    line-height: 1.1;
+}
+
+.product-material-desc {
+    font-size: 0.95em;
+    color: #333;
+    margin-bottom: 25px;
+    border-top: 1px solid var(--color-border);
+    padding-top: 20px;
+}
+
+/* --- FORMULÁRIO DE COMPRA --- */
+#add-to-cart-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: flex-end;
+}
+
+/* NOVO: SELETOR DE REGIÕES (CHECKBOXES) */
+.region-selection-container {
+    width: 100%;
+    margin-bottom: 10px;
+    background-color: #fcfcfc;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.region-title {
+    font-size: 0.85em;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    margin-bottom: 12px;
+    display: block;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 8px;
+}
+
+.region-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Duas colunas */
+    gap: 12px;
+}
+
+.region-option {
+    display: flex;
+    align-items: center;
+    font-size: 0.9em;
+    color: #555;
+    cursor: pointer;
+    padding: 2px 0;
+    transition: color 0.2s;
+}
+
+.region-option:hover {
+    color: var(--color-accent);
+}
+
+.region-option input {
+    margin-right: 10px;
+    transform: scale(1.2); /* Checkbox maior */
+    accent-color: var(--color-accent); /* Cor do check */
+    cursor: pointer;
+}
+
+.region-option span {
+    flex-grow: 1;
+}
+
+.region-price-hint {
+    font-size: 0.85em;
+    color: #999;
+    font-weight: 500;
+}
+
+/* Dropdowns e Inputs Padrão */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    min-width: 120px;
+}
+
+.form-group label {
+    font-size: 0.85em;
+    font-weight: 600;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    color: #666;
+}
+
+.form-group select,
+.form-group input[type="number"] {
+    padding: 12px 10px;
+    border: 1px solid var(--color-border);
+    font-size: 1em;
+    font-family: var(--font-sans);
+    color: var(--color-primary);
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+.form-group input[type="number"] {
+    width: 80px;
+}
+
+.add-to-cart-btn {
+    width: 100%;
+    padding: 15px 30px;
+    font-size: 1.1em;
+    margin-top: 15px;
+    border-radius: 4px;
+}
+
+.add-to-cart-btn:disabled {
+    background-color: #ccc;
+    border-color: #ccc;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.form-message-success {
+    color: var(--color-accent);
+    font-weight: 600;
+    width: 100%;
+    margin-top: 10px;
+    font-size: 0.9em;
+    text-align: center;
+}
+
+
+/* =========================================
+   NOVA SEÇÃO DE DESCRIÇÃO (EDITORIAL)
+   Substitui a antiga "Complete sua Coleção"
+   ========================================= */
+
+.product-description-section {
+    padding: 80px 0;
+    background-color: var(--color-background); /* Fundo leve para destacar */
+    border-top: 1px solid var(--color-border);
+    margin-top: 60px;
+}
+
+.desc-main-block {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 50px auto;
+}
+
+.desc-title {
+    font-family: var(--font-sans);
+    font-size: 2em;
+    color: var(--color-primary);
+    margin-bottom: 25px;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.desc-text {
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: #555;
+    font-weight: 300;
+}
+
+.desc-separator {
+    width: 60px;
+    height: 2px;
+    background-color: var(--color-accent); /* Dourado */
+    margin: 0 auto 50px auto;
+}
+
+.desc-details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.desc-column {
+    background: #fff;
+    padding: 40px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+}
+
+.desc-icon-title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    color: var(--color-primary);
+}
+
+.desc-icon-title i {
+    font-size: 1.5em;
+    color: var(--color-accent);
+}
+
+.desc-icon-title h3 {
+    font-size: 1.1em;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+.desc-text-small {
+    font-size: 0.95em;
+    line-height: 1.7;
+    color: #666;
+}
+
+/* Responsivo Mobile */
+@media (max-width: 768px) {
+    .product-detail-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .region-grid {
+        grid-template-columns: 1fr; /* Checkboxes em 1 coluna no mobile */
+    }
+
+    .desc-details-grid {
+        grid-template-columns: 1fr; /* Coluna única no celular */
+        gap: 30px;
+    }
+    .desc-main-block {
+        padding: 0 20px;
+    }
+    .desc-title {
+        font-size: 1.6em;
+    }
+}

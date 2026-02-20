@@ -1,0 +1,408 @@
+/* page-avaliacao.css - White-label (Versão Final Completa) */
+
+/* --- ESTRUTURA GERAL --- */
+.wizard-container {
+    padding: 120px 0 100px 0; /* Espaço para não colar no header/footer */
+    min-height: 90vh;
+    display: flex;
+    align-items: flex-start; /* Alinha no topo para evitar cortes */
+    justify-content: center;
+}
+
+/* Cartão Centralizado */
+.wizard-card {
+    background-color: #fff;
+    width: 100%;
+    max-width: 650px;
+    padding: 50px;
+    border-radius: 25px; 
+    box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+    border: 1px solid var(--color-border);
+    position: relative;
+    text-align: center;
+    z-index: 10;
+}
+
+/* Barra de Progresso */
+.wizard-progress {
+    width: 100%;
+    height: 6px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    margin-bottom: 40px;
+    overflow: hidden;
+}
+.progress-bar {
+    height: 100%;
+    background-color: var(--color-accent); /* Dourado */
+    width: 0%;
+    transition: width 0.4s ease;
+    border-radius: 10px;
+}
+
+/* --- TIPOGRAFIA --- */
+.wiz-title {
+    font-family: var(--font-sans);
+    font-weight: 400;
+    color: var(--color-primary);
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    line-height: 1.3;
+}
+.wiz-subtitle {
+    font-size: 1em;
+    color: #888;
+    margin-bottom: 35px;
+    font-weight: 300;
+}
+
+/* Títulos de Seção Internos */
+.wiz-section-title {
+    font-size: 1em;
+    font-weight: 600;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+    text-align: left;
+    margin-top: 20px;
+}
+
+/* --- INPUTS --- */
+.wiz-input-sutil {
+    width: 100%;
+    border: 1px solid var(--color-border);
+    border-radius: 50px; 
+    padding: 15px 25px;
+    font-size: 1.1em;
+    color: var(--color-primary);
+    text-align: center;
+    outline: none;
+    background: var(--color-background);
+    transition: all 0.3s;
+    margin-bottom: 30px;
+    font-family: var(--font-sans);
+}
+.wiz-input-sutil:focus {
+    border-color: var(--color-accent);
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(170, 148, 120, 0.1);
+}
+
+.wiz-textarea-sutil {
+    width: 100%;
+    border: 1px solid var(--color-border);
+    border-radius: 20px; 
+    padding: 20px;
+    font-size: 1em;
+    color: var(--color-primary);
+    resize: vertical;
+    outline: none;
+    background: var(--color-background);
+    font-family: var(--font-sans);
+    min-height: 120px;
+    margin-bottom: 20px;
+}
+.wiz-textarea-sutil:focus {
+    border-color: var(--color-accent);
+    background: #fff;
+}
+
+/* Grupo de Inputs Lado a Lado (Ex: Peso e Altura) */
+.wiz-input-group {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+.wiz-input-group input {
+    width: 50%;
+    margin-bottom: 0; 
+}
+
+/* --- BOTÕES DE OPÇÃO (Estilo Card) --- */
+.wiz-options-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.wiz-btn-option {
+    background: #fff;
+    border: 1px solid var(--color-border);
+    padding: 15px 10px;
+    border-radius: 30px; 
+    color: var(--color-primary);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.95em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    position: relative;
+    min-height: 54px;
+}
+
+.wiz-btn-option:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    transform: translateY(-2px);
+}
+
+.wiz-btn-option.selected {
+    background-color: var(--color-accent);
+    color: white;
+    border-color: var(--color-accent);
+    box-shadow: 0 5px 15px rgba(170, 148, 120, 0.3);
+}
+
+.wiz-btn-option.selected::before {
+    content: "\f00c"; 
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    font-size: 0.9em;
+}
+
+/* --- ELEMENTOS DE FORMULÁRIO (Checks e Radios) --- */
+
+/* 1. Grid de Checkboxes */
+.wiz-checkbox-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 20px 0 30px 0;
+    text-align: left;
+}
+
+.wiz-checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9em;
+    color: #555;
+    cursor: pointer;
+    background: #f9f9f9;
+    padding: 12px 15px;
+    border-radius: 12px;
+    border: 1px solid #eee;
+    transition: all 0.2s;
+}
+
+.wiz-checkbox-label:hover {
+    background-color: #f0f0f0;
+}
+
+.wiz-checkbox-label.checked {
+    background-color: rgba(170, 148, 120, 0.1);
+    border-color: var(--color-accent);
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+.wiz-checkbox-label i {
+    color: #ccc;
+    font-size: 1.1em;
+    transition: color 0.2s;
+}
+
+.wiz-checkbox-label.checked i {
+    color: var(--color-accent);
+}
+
+/* 2. Botões de Rádio */
+.wiz-radio-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.wiz-radio-btn {
+    padding: 10px 25px;
+    border: 1px solid #ddd;
+    border-radius: 50px;
+    background: #fff;
+    cursor: pointer;
+    color: #666;
+    font-family: var(--font-sans);
+    font-size: 0.95em;
+    transition: all 0.2s;
+}
+
+.wiz-radio-btn:hover {
+    background-color: #f9f9f9;
+    border-color: #bbb;
+}
+
+.wiz-radio-btn.selected {
+    background-color: var(--color-accent);
+    color: #fff;
+    border-color: var(--color-accent);
+    box-shadow: 0 4px 10px rgba(170, 148, 120, 0.2);
+}
+
+/* --- RESUMO E TERMOS --- */
+.wiz-summary-box {
+    background-color: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: 15px;
+    padding: 30px;
+    text-align: left;
+    margin-bottom: 30px;
+    font-size: 0.95em;
+    line-height: 1.6;
+    color: var(--color-primary);
+}
+
+.wiz-summary-list {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0 0 0;
+}
+
+.wiz-summary-list li {
+    position: relative;
+    padding-left: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(0,0,0,0.03);
+    padding-bottom: 10px;
+}
+.wiz-summary-list li:last-child { border-bottom: none; }
+
+.wiz-summary-list li::before {
+    content: "•";
+    color: var(--color-accent);
+    font-weight: bold;
+    font-size: 1.2em;
+    position: absolute;
+    left: 0;
+    top: -2px;
+}
+
+/* Caixa de Texto do Termo (Com rolagem) */
+.wiz-terms-box {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: justify;
+    font-size: 0.85em;
+    color: #666;
+    height: 150px; /* Altura fixa */
+    overflow-y: auto; /* Barra de rolagem */
+    margin-bottom: 15px;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.wiz-terms-box h4 {
+    color: var(--color-primary);
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+/* Checkbox de Confirmação (Estilo de Destaque) */
+.wiz-term-check {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    color: #666;
+    padding: 15px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s;
+    margin-bottom: 20px;
+}
+
+/* ESTADO ATIVO: Cor principal do tema + Texto Branco */
+.wiz-term-check.active {
+    background-color: var(--color-primary); /* var(--color-primary) */
+    color: #fff;
+    border-color: var(--color-primary);
+    box-shadow: 0 4px 10px rgba(69, 79, 74, 0.3);
+}
+
+.wiz-term-check i {
+    font-size: 1.2em;
+}
+
+/* --- NAVEGAÇÃO E BOTÕES --- */
+.wiz-nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 40px;
+    border-top: 1px solid #f5f5f5;
+    padding-top: 30px;
+}
+
+/* Botão Desabilitado (Bloqueado) */
+.btn-disabled {
+    background-color: #cccccc !important;
+    border-color: #cccccc !important;
+    color: #888 !important;
+    cursor: not-allowed !important;
+    pointer-events: none; /* Impede clique */
+    box-shadow: none !important;
+}
+
+/* --- NOTIFICAÇÃO FLUTUANTE --- */
+.wizard-toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    opacity: 0;
+    visibility: hidden; 
+    
+    background-color: var(--color-primary);
+    color: #fff;
+    padding: 12px 30px;
+    border-radius: 50px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+    z-index: 10000;
+    
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.wizard-toast.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+    visibility: visible;
+}
+
+.wizard-toast i {
+    color: var(--color-accent);
+    font-size: 1.2em;
+}
+
+/* --- RESPONSIVO --- */
+@media (max-width: 600px) {
+    .wiz-options-grid {
+        grid-template-columns: 1fr; 
+    }
+    .wiz-checkbox-grid {
+        grid-template-columns: 1fr;
+    }
+    .wizard-card {
+        padding: 30px 20px;
+    }
+    .wiz-title {
+        font-size: 1.5em;
+    }
+}

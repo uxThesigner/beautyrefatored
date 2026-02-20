@@ -1,0 +1,180 @@
+/* footer.css - White-label (Versão Final Compatível) */
+
+/* Wrapper Principal: Garante fundo escuro em todas as páginas */
+.main-footer-section {
+    background-color: var(--color-primary); /* Fundo Escuro Obrigatório */
+    color: var(--color-marquee); /* Texto bege claro */
+    padding: 60px 0 0; /* Padding superior */
+    border-top: 1px solid rgba(220, 216, 206, 0.1);
+    width: 100%;
+    font-family: var(--font-sans);
+}
+
+/* Logo no Rodapé */
+.main-footer-section .logo-img {
+    filter: none; 
+    height: 35px; 
+    width: auto;
+    display: block;
+    margin-bottom: 20px;
+}
+
+/* Grid de Colunas */
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr repeat(3, 1fr); /* 1 Coluna larga + 3 estreitas */
+    gap: 40px;
+    padding-bottom: 40px;
+    max-width: 1280px; /* Limite de largura para não estourar em monitores grandes */
+    margin: 0 auto;    /* Centraliza */
+}
+
+/* Títulos das Colunas */
+.footer-column h4 {
+    margin-bottom: 20px;
+    font-weight: 400; 
+    font-size: 0.9em;
+    color: var(--color-accent); /* Dourado */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Textos Gerais */
+.footer-column p {
+    font-size: 0.9em;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    opacity: 0.8;
+    font-weight: 300;
+}
+
+/* Listas de Links */
+.footer-column ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px; /* Espaçamento vertical entre itens */
+}
+
+.footer-column ul a {
+    text-decoration: none;
+    color: var(--color-marquee);
+    font-size: 0.9em;
+    display: block;
+    opacity: 0.7;
+    transition: all 0.2s;
+    font-weight: 300;
+}
+
+.footer-column ul a:hover {
+    opacity: 1;
+    color: var(--color-accent); 
+    padding-left: 5px; /* Efeito slide sutil */
+}
+
+/* Redes Sociais */
+.footer-column .social-icons {
+    display: flex;
+    gap: 15px;
+    font-size: 1.3em; 
+    margin-top: 10px;
+}
+
+.footer-column .social-icons a {
+    color: var(--color-marquee);
+    opacity: 0.8;
+    transition: color 0.2s;
+}
+
+.footer-column .social-icons a:hover {
+    opacity: 1;
+    color: var(--color-accent); 
+}
+
+/* Ícones de Pagamento */
+.payment-icons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.payment-icon {
+    height: 25px;
+    width: auto;
+    border-radius: 2px;
+    background-color: rgba(255, 255, 255, 0.8); 
+    padding: 2px;
+    opacity: 0.7;
+}
+
+/* Copyright e Endereço */
+.copyright {
+    text-align: center;
+    font-size: 0.8em;
+    padding: 30px 0 30px; /* Mais espaço embaixo */
+    border-top: 1px solid rgba(220, 216, 206, 0.1); 
+    margin-top: 20px;
+    line-height: 1.8;
+    color: rgba(220, 216, 206, 0.5);
+    font-weight: 300;
+}
+
+.copyright p {
+    margin: 5px 0; 
+}
+
+/* Botão Flutuante do WhatsApp */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25D366;
+    color: #FFF;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 25px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    background-color: #128C7E;
+    transform: scale(1.1);
+}
+
+.whatsapp-tooltip {
+    display: none; /* Tooltip simples opcional */
+}
+
+/* Ajuste Mobile */
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr; /* Uma coluna só */
+        gap: 40px;
+        text-align: center;
+        width: 90%; /* Margem de segurança */
+    }
+
+    .footer-column .social-icons {
+        justify-content: center;
+    }
+
+    .main-footer-section .logo-img {
+        margin: 0 auto 20px auto;
+    }
+    
+    .payment-icons {
+        justify-content: center;
+    }
+}

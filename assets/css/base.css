@@ -1,0 +1,317 @@
+/* base.css - White-label */
+
+:root {
+    /* --- WHITE-LABEL THEME VARS (fallbacks se JS não carregar) --- */
+    --font-sans: 'Poppins', 'Helvetica Neue', Arial, sans-serif;
+    --font-script: cursive;
+
+    --radius-btn: 4px;
+    --radius-input: 8px;
+    --radius-card: 6px;
+    --radius-pill: 999px;
+
+    /* Paleta fallback */
+    --color-primary: #454F4A;
+    --color-accent: #AA9478;
+    --color-background: #FAFAFA;
+    --color-marquee: #DCD8CE;
+    --color-text: #454F4A;
+    --color-border: #E0E0E0;
+    --color-highlight: #9E8569;
+    --color-text-light: #FFFFFF;
+
+    /* Header (JS ajusta dinamicamente) */
+    --header-height: 72px;
+    --header-height-mobile: 56px;
+}
+
+/* --- RESET & BASE --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* Scroll suave ao clicar em links âncora */
+    height: 100%; 
+}
+
+body {
+    font-family: var(--font-sans); 
+    color: var(--color-text);
+    line-height: 1.6; 
+    background-color: var(--color-background);
+    font-weight: 400;
+    
+    /* TÉCNICA STICKY FOOTER: */
+    /* Garante que o rodapé fique no chão, mesmo com pouco conteúdo */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+}
+
+/* Container Centralizado */
+.container {
+    width: 90%;
+    max-width: 1280px; 
+    margin: 0 auto;
+}
+
+/* O Main cresce para ocupar todo o espaço vazio disponível */
+main {
+    flex: 1;
+    width: 100%; 
+}
+
+/* --- HEADER PLACEHOLDER --- */
+/* Evita que o conteúdo suba para trás do menu fixo */
+#header-placeholder {
+    width: 100%;
+    display: block;
+    background-color: var(--color-primary); 
+    z-index: 99;
+    min-height: var(--header-height);
+ /* Altura calculada do header desktop */
+    flex-shrink: 0; 
+}
+
+@media (max-width: 768px) {
+    #header-placeholder {
+        min-height: var(--header-height-mobile);
+    }
+}
+
+/* --- BOTÕES (ESTILO CLEAN LUXURY) --- */
+.btn {
+    text-decoration: none;
+    padding: 12px 35px;
+    border: 1px solid;
+    border-radius: var(--radius-btn); 
+    font-weight: 600; 
+    letter-spacing: 1.5px; 
+    display: inline-block;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-size: 0.85em;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: var(--color-accent); 
+    color: #FFFFFF; 
+    border-color: var(--color-accent);
+}
+.btn-primary:hover {
+    background-color: var(--color-primary); 
+    border-color: var(--color-primary);
+}
+.btn-primary:disabled {
+    background-color: #CCC;
+    border-color: #CCC;
+    cursor: not-allowed;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--color-primary); 
+    border-color: var(--color-primary); 
+}
+.btn-secondary:hover {
+    background-color: var(--color-marquee); 
+    border-color: var(--color-primary);
+}
+
+/* Botão Pequeno (Usado no Banner de Cookies) */
+.btn-sm {
+    padding: 10px 25px;
+    font-size: 0.8em;
+    white-space: nowrap;
+}
+
+/* --- UTILITÁRIOS --- */
+/* Usado para copiar links sem quebrar o layout */
+.clipboard-helper {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    opacity: 0;
+    height: 1px;
+    width: 1px;
+}
+
+/* --- BOTÃO FLUTUANTE WHATSAPP (Versão Refinada) --- */
+.whatsapp-float {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 50px;
+    height: 50px;
+    background-color: #25D366;
+    color: #FFF;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 28px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    animation: pulse-green 3s infinite;
+}
+
+.whatsapp-float:hover {
+    background-color: #128C7E;
+    transform: translateY(-3px);
+}
+
+/* Tooltip (Texto Lateral "CHAMAR NO WHATSAPP") */
+.whatsapp-tooltip {
+    position: absolute;
+    right: 60px; /* Posiciona à esquerda do botão */
+    background-color: #FFF;
+    color: var(--color-primary); /* Verde escuro da marca */
+    padding: 6px 12px;
+    border-radius: var(--radius-btn);
+    font-size: 0.42em; /* Fonte pequena */
+    font-weight: 700; /* Negrito */
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.05);
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+    transform: translateX(10px);
+    pointer-events: none;
+}
+
+.whatsapp-float:hover .whatsapp-tooltip {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+@keyframes pulse-green {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+/* --- BANNER LGPD (COOKIES) --- */
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    border-top: 1px solid var(--color-border);
+    padding: 20px;
+    box-shadow: 0 -5px 20px rgba(0,0,0,0.05);
+    z-index: 9999; /* Fica acima de tudo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    
+    /* Animação de entrada */
+    transform: translateY(100%); 
+    transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.cookie-banner.show {
+    transform: translateY(0);
+}
+
+.cookie-content p {
+    font-size: 0.9em;
+    color: #666;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.cookie-content a {
+    color: var(--color-primary);
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+/* --- AJUSTES MOBILE --- */
+@media (max-width: 768px) {
+    /* Ajuste Botão WhatsApp Mobile */
+    .whatsapp-float {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+        font-size: 24px;
+    }
+    .whatsapp-tooltip { display: none; } 
+
+    /* Ajuste Banner Cookies Mobile */
+    .cookie-banner {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+        padding-bottom: 90px; /* Espaço extra para não cobrir o WhatsApp */
+    }
+}
+
+/* --- BOTÃO VOLTAR AO TOPO (Ajustado e Alinhado) --- */
+#back-to-top {
+    position: fixed;
+    /* 90px do chão garante que ele fique ACIMA do botão do WhatsApp */
+    bottom: 90px; 
+    /* 25px da direita alinha com a maioria dos widgets de chat */
+    right: 25px;
+    
+    /* Tamanho reduzido para ficar mais sutil (era 45px) */
+    width: 36px;
+    height: 36px;
+    
+    background-color: var(--color-accent); /* Dourado */
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+    cursor: pointer;
+    z-index: 9000; /* Z-index alto, mas menor que o do WhatsApp */
+    
+    /* Começa invisível */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+    
+    /* Centralizar ícone */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem; /* Ícone um pouco menor */
+}
+
+#back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#back-to-top:hover {
+    background-color: #8e7b64;
+    transform: translateY(-3px);
+}
+
+
+/* =====================
+   ACESSIBILIDADE
+   ===================== */
+.sr-only{
+    position:absolute !important;
+    width:1px;
+    height:1px;
+    padding:0;
+    margin:-1px;
+    overflow:hidden;
+    clip:rect(0,0,0,0);
+    white-space:nowrap;
+    border:0;
+}

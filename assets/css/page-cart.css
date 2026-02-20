@@ -1,0 +1,353 @@
+/* page-cart.css - White-label (Versão Final: Ajuste Mobile Cupom & Botões) */
+
+/* --- ESTRUTURA GERAL --- */
+.cart-main {
+    padding-top: 80px; 
+    padding-bottom: 60px;
+    
+    /* Altura mínima para o rodapé ficar embaixo */
+    min-height: 70vh; 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+}
+
+.page-title {
+    font-size: 2.5em;
+    font-weight: 900;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 20px; 
+    color: var(--color-primary);
+    width: 100%;
+}
+
+.cart-content-wrapper {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+    width: 100%;
+    flex-grow: 1; 
+}
+
+/* --- TABELA --- */
+.cart-list-container { width: 100%; }
+
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.cart-table th, 
+.cart-table td {
+    padding: 15px 10px;
+    border-bottom: 1px solid var(--color-border);
+    text-align: left;
+    vertical-align: middle;
+}
+
+.cart-table th {
+    font-size: 0.8em;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #555;
+}
+
+.cart-table .th-product { width: 50%; }
+
+.product-info-cell {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.product-info-cell span {
+    font-size: 0.95em;
+    font-weight: 600;
+}
+
+.cart-product-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+}
+
+.cart-quantity-input {
+    width: 60px;
+    padding: 8px;
+    text-align: center;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+}
+
+.btn-remove-item {
+    background: none;
+    border: none;
+    color: var(--color-highlight);
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+.btn-remove-item:hover { color: var(--color-primary); }
+
+.back-to-shop {
+    margin-top: 30px;
+}
+
+/* --- RESUMO --- */
+.cart-summary {
+    background-color: #fdfdfd;
+    border: 1px solid var(--color-border);
+    padding: 30px;
+    height: fit-content;
+    border-radius: 8px;
+}
+
+.cart-summary h3 {
+    font-size: 1.3em;
+    font-weight: 800;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.summary-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1em;
+    margin-bottom: 15px;
+}
+
+.summary-line span:first-child { color: #444; }
+.summary-line span:last-child { font-weight: 600; }
+
+.summary-line.total-line {
+    font-size: 1.2em;
+    font-weight: 700;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--color-border);
+}
+
+.summary-line.total-line strong:last-child {
+    font-size: 1.3em;
+    color: var(--color-highlight);
+}
+
+.installments-info {
+    font-size: 0.85em;
+    color: #555;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 25px;
+}
+
+.checkout-btn {
+    width: 100%;
+    padding: 15px 30px;
+    font-size: 1.1em;
+    text-transform: none;
+    letter-spacing: 1px;
+}
+
+/* --- CUPOM --- */
+.summary-line-cupom {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    padding: 20px 0;
+}
+.summary-line-cupom input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid var(--color-border);
+    font-family: var(--font-sans);
+    font-size: 0.9em;
+    border-radius: 4px;
+}
+.summary-line-cupom .btn-secondary {
+    padding: 10px 15px;
+    flex-shrink: 0;
+    font-size: 0.9em;
+    background-color: #f5f5f5;
+}
+.summary-line-cupom .btn-secondary:hover { background-color: var(--color-border); }
+
+.cupom-message-status {
+    width: 100%;
+    margin-top: 10px;
+    font-weight: 700;
+    text-align: center;
+    padding: 5px 0;
+    font-size: 0.9em;
+}
+
+/* --- SHARE BUTTON --- */
+.share-cart-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#share-cart-btn {
+    text-decoration: none;
+    color: #555;
+    font-size: 0.9em;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+#share-cart-btn i { margin-right: 8px; }
+#share-cart-btn:hover { color: var(--color-accent); }
+#share-cart-success { font-size: 0.9em; font-weight: 600; color: var(--color-accent); }
+
+
+/* ==========================================================================
+   ESTILOS DE "SACOLA VAZIA" & CORREÇÕES MOBILE
+   ========================================================================== */
+
+/* 1. RESET & POSICIONAMENTO DA ÁREA VAZIA */
+.empty-cart-cell {
+    text-align: center;
+    padding: 0 !important;
+    border: none !important;
+    padding: 80px 0 !important; 
+    
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    
+    width: 100%;
+}
+
+/* 2. ÍCONE PEQUENO */
+.empty-content i {
+    font-size: 2em; 
+    color: var(--color-border); 
+    margin-bottom: 15px;
+}
+
+/* TEXTO */
+.empty-content p {
+    font-size: 1.1em;
+    color: #888;
+    margin-bottom: 15px;
+    font-weight: 300;
+}
+
+/* 3. BOTÃO LINK SUTIL */
+.btn-link-empty {
+    color: var(--color-accent); 
+    font-weight: 500;
+    text-decoration: underline; 
+    text-underline-offset: 3px;
+    font-size: 0.95em;
+    background: none;
+    border: none;
+    padding: 0;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+.btn-link-empty:hover {
+    color: var(--color-primary);
+    background: none;
+    opacity: 0.8;
+}
+
+/* 4. CORREÇÕES DE ALINHAMENTO MOBILE (CUPOM E BOTÕES) */
+@media (max-width: 768px) {
+    
+    /* --- AJUSTE: BOTÃO CONTINUAR COMPRANDO --- */
+    .back-to-shop {
+        margin-top: 30px;
+        text-align: center !important;
+        display: flex;
+        justify-content: center; /* Garante centralização Flex */
+        width: 100%;
+    }
+    .back-to-shop .btn-secondary {
+        width: 100%; /* Botão full width no mobile para facilitar o clique */
+        text-align: center;
+    }
+
+    /* --- TRANSFORMAÇÃO DO CUPOM (MOBILE) --- */
+    .summary-line-cupom {
+        display: flex;
+        flex-direction: column; /* Coloca um embaixo do outro */
+        gap: 15px;
+        margin-bottom: 30px;
+    }
+    
+    .summary-line-cupom input {
+        width: 100%;
+        height: 50px; 
+        margin: 0;
+        text-align: center; /* Texto do input centralizado */
+    }
+    
+    /* Transforma o botão "OK" em "APLICAR CUPOM" Verde */
+    .summary-line-cupom .btn-secondary {
+        width: 100%;
+        height: 50px;
+        background-color: var(--color-primary) !important; /* Cor Verde do Site */
+        color: #ffffff !important; /* Texto claro */
+        border: none;
+        
+        /* Truque para trocar o texto via CSS */
+        font-size: 0 !important; 
+        
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        margin: 0;
+        border-radius: 4px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    
+    /* Novo texto do botão */
+    .summary-line-cupom .btn-secondary::after {
+        content: "APLICAR CUPOM";
+        font-size: 1rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+    }
+
+    /* --- Layout Geral Mobile --- */
+    .cart-content-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    /* Esconde botão continuar comprando quando vazio */
+    .cart-main:has(.empty-cart-row) .back-to-shop { display: none !important; }
+    .empty-cart-row ~ .back-to-shop { display: none !important; }
+
+    /* Estilos Sacola Vazia */
+    .cart-table tbody tr.empty-cart-row {
+        background: transparent !important;
+        box-shadow: none !important;
+        border: none !important;
+        display: flex !important;
+        width: 100% !important;
+        justify-content: center !important; 
+        align-items: center !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    .empty-cart-cell::before { content: none !important; display: none !important; }
+    .empty-cart-cell {
+        padding-left: 0 !important; 
+        margin-left: 0 !important;
+        width: 100% !important;
+        max-width: none !important;
+        padding: 60px 0 !important;
+    }
+}

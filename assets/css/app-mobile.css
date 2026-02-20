@@ -1,0 +1,131 @@
+/* ==========================================================
+   App-like mobile fixes (Admin + Cliente)
+   - Scoped by body classes: .admin-app and .client-app
+   - Goal: remove horizontal scroll and improve mobile layout
+   ========================================================== */
+
+body.admin-app, body.client-app {
+  overflow-x: hidden;
+}
+
+/* Garante que o menu do admin nunca fique "por baixo" de overlays */
+body.admin-app .admin-sidebar {
+  z-index: 9999 !important;
+}
+
+/* ---------- ADMIN (mobile) ---------- */
+@media (max-width: 768px) {
+  body.admin-app {
+    flex-direction: column !important;
+  }
+
+  body.admin-app .admin-sidebar {
+    /* Vira uma barra superior "app-like" */
+    position: sticky !important;
+    top: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    padding: 10px 12px !important;
+    z-index: 50 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 12px !important;
+    overflow: hidden !important;
+  }
+
+  body.admin-app .admin-logo {
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    text-align: left !important;
+    flex: 0 0 auto !important;
+  }
+
+  body.admin-app .admin-logo img {
+    max-width: none !important;
+    height: 30px !important;
+    width: auto !important;
+    display: block !important;
+  }
+
+  /* Menu em linha: apenas ícones */
+  body.admin-app .admin-nav {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 10px !important;
+    align-items: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    flex: 1 1 auto !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  body.admin-app .admin-nav::-webkit-scrollbar { display: none; }
+
+  body.admin-app .admin-nav li {
+    margin: 0 !important;
+    flex: 0 0 auto !important;
+  }
+
+  body.admin-app .admin-nav a {
+    padding: 10px !important;
+    border-radius: 14px !important;
+    min-width: 44px !important;
+    min-height: 44px !important;
+    justify-content: center !important;
+    gap: 0 !important;
+  }
+
+  body.admin-app .admin-nav a span {
+    display: none !important;
+  }
+
+  body.admin-app .sidebar-footer {
+    display: none !important;
+  }
+
+  body.admin-app .admin-main {
+    margin-left: 0 !important;
+    width: 100% !important;
+    padding: 18px 16px !important;
+  }
+
+  /* Evita que cards/tabelas empurrem a tela */
+  body.admin-app table {
+    max-width: 100%;
+  }
+
+  /* Permite scroll horizontal somente dentro de tabelas, se necessário */
+  body.admin-app .table-container,
+  body.admin-app .table-responsive,
+  body.admin-app .table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* ---------- CLIENTE (mobile) ---------- */
+@media (max-width: 768px) {
+  body.client-app .client-dashboard {
+    padding: 20px 0 !important;
+  }
+
+  body.client-app .client-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+
+  body.client-app .client-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Ajusta botões para não estourar largura */
+  body.client-app .btn-action-small,
+  body.client-app .btn,
+  body.client-app a.btn {
+    max-width: 100%;
+  }
+}
